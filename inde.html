@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth overflow-x-hidden w-full">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -74,7 +74,7 @@
         /* Premium Background Medical Particles */
         .bg-particles {
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100vh;
+            top: 0; left: 0; width: 100vw; height: 100vh;
             pointer-events: none; z-index: -1; overflow: hidden;
         }
         .particle {
@@ -115,15 +115,12 @@
         /* Marquee */
         .marquee-wrapper { display: flex; overflow: hidden; width: 100%; white-space: nowrap; }
         .marquee-content {
-            display: flex; flex-shrink: 0; gap: 1rem; 
-            /* 15s duration slows it down by ~20% from the previous 12s */
-            animation: infinite-scroll 16s linear infinite; 
+            display: flex; animation: marquee 30s linear infinite; gap: 1rem; padding-right: 1rem;
         }
         .marquee-wrapper:hover .marquee-content { animation-play-state: paused; }
-        @keyframes infinite-scroll {
-            from { transform: translateX(0); }
-            to { transform: translateX(calc(-100% - 1rem)); }
-        }        /* Reveal Animations */
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        /* Reveal Animations */
         .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
         .reveal-left { opacity: 0; transform: translateX(-50px); transition: all 0.8s ease; }
@@ -164,7 +161,7 @@
         @keyframes typing { 0%, 80%, 100% { transform: scale(0); } 40% { transform: scale(1); } }
     </style>
 </head>
-<body class="text-slate-800 antialiased selection:bg-brand-blue selection:text-white relative overflow-x-hidden w-full">
+<body class="text-slate-800 antialiased selection:bg-brand-blue selection:text-white relative">
 
     <!-- Preloader -->
     <div id="preloader">
@@ -176,7 +173,7 @@
     </div>
 
     <!-- Scroll Progress -->
-    <!-- <div id="scroll-progress"></div> -->
+    <div id="scroll-progress"></div>
 
     <!-- Animated Medical Background -->
     <div class="bg-particles" id="particles-container">
@@ -201,20 +198,19 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center gap-2 sm:gap-3 cursor-pointer" onclick="window.scrollTo(0,0)">
-                    <div class="w-10 h-10 sm:w-12 sm:h-12 shrink-0 transition-transform duration-300 hover:scale-105">
-                        <!-- Dummy Logo Image -->
-                        <img src="Images/logoo.png" alt="Prabhat Hospital Logo" class="w-full h-full object-cover rounded-xl shadow-sm border border-slate-200">
+                <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <div class="w-12 h-12 bg-gradient-to-br from-brand-blue to-brand-lightBlue text-white rounded-xl flex items-center justify-center text-2xl font-bold shadow-lg">
+                        PH
                     </div>
                     <div>
-                        <h1 class="text-lg sm:text-xl md:text-2xl font-bold text-brand-blue leading-tight">Prabhat Hospital</h1>
-                        <p class="text-[8px] sm:text-[10px] md:text-xs text-brand-green font-semibold tracking-wide uppercase">Multi Speciality & Trauma Centre</p>
+                        <h1 class="text-xl md:text-2xl font-bold text-brand-blue leading-tight">Prabhat Hospital</h1>
+                        <p class="text-[10px] md:text-xs text-brand-green font-semibold tracking-wide uppercase">Multi Speciality & Trauma Centre</p>
                     </div>
                 </div>
 
                 <!-- Desktop Menu -->
                 <nav class="hidden md:flex space-x-3 lg:space-x-8 items-center text-sm lg:text-base whitespace-nowrap">
-                    <a href="#home" class="text-slate-600 hover:text-brand-blue font-medium transition-colors">Notices</a>
+                    <a href="#home" class="text-slate-600 hover:text-brand-blue font-medium transition-colors">Home</a>
                     <a href="#about" class="text-slate-600 hover:text-brand-blue font-medium transition-colors">About</a>
                     <a href="#services" class="text-slate-600 hover:text-brand-blue font-medium transition-colors">Services</a>
                     <a href="#doctors" class="text-slate-600 hover:text-brand-blue font-medium transition-colors">Doctors</a>
@@ -241,7 +237,7 @@
         <!-- Mobile Menu Panel (Animated Slide Down) -->
         <div id="mobile-menu" class="absolute w-full bg-white border-b border-slate-100 shadow-xl overflow-hidden transition-all duration-300 ease-in-out max-h-0 md:hidden top-[100%] left-0">
             <div class="px-4 pt-2 pb-6 space-y-2">
-                <a href="#home" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-50 mobile-link border-b border-slate-50 transition-colors">Notices</a>
+                <a href="#home" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-50 mobile-link border-b border-slate-50 transition-colors">Home</a>
                 <a href="#about" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-50 mobile-link border-b border-slate-50 transition-colors">About</a>
                 <a href="#services" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-50 mobile-link border-b border-slate-50 transition-colors">Services</a>
                 <a href="#doctors" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-50 mobile-link border-b border-slate-50 transition-colors">Doctors</a>
@@ -263,35 +259,35 @@
                 
                 <!-- Hero Content -->
                 <div class="reveal-left active">
-                    <div class="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-slate-800 text-blue-300 text-xs sm:text-sm font-semibold mb-6 shadow-sm border border-slate-700 w-fit max-w-full">
-                        <span class="relative flex h-2 w-2 sm:h-3 sm:w-3 shrink-0">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800 text-blue-300 text-sm font-semibold mb-6 shadow-sm border border-slate-700">
+                        <span class="relative flex h-3 w-3">
                           <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-lightBlue opacity-75"></span>
-                          <span class="relative inline-flex rounded-full h-2 w-2 sm:h-3 sm:w-3 bg-brand-lightBlue"></span>
+                          <span class="relative inline-flex rounded-full h-3 w-3 bg-brand-lightBlue"></span>
                         </span>
-                        <span class="whitespace-normal">24x7 Emergency Service Available</span>
+                        24×7 Emergency Service Available
                     </div>
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6 break-words">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
                         Advanced Healthcare With <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-brand-lightBlue">Compassion & Excellence</span>
                     </h1>
-                    <p class="text-base sm:text-lg text-slate-300 mb-8 leading-relaxed max-w-xl">
+                    <p class="text-lg text-slate-300 mb-8 leading-relaxed max-w-xl">
                         Prabhat Hospital provides world-class multi-speciality treatment, emergency care, trauma services, diagnostics, and critical care facilities with experienced specialists and 24×7 support.
                     </p>
-                    <p class="text-sm sm:text-md italic text-brand-lightGreen font-medium mb-8">"Your Health, Our Effort"</p>
+                    <p class="text-md italic text-brand-lightGreen font-medium mb-8">"Your Health, Our Effort"</p>
                     
-                    <div class="flex flex-col sm:flex-row gap-4 w-full">
-                        <a href="#appointment" class="w-full sm:w-auto flex items-center justify-center gap-2 bg-brand-blue hover:bg-blue-600 text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg hover:shadow-brand-blue/40 transform hover:-translate-y-1 text-center">
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#appointment" class="flex items-center justify-center gap-2 bg-brand-blue hover:bg-blue-600 text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg hover:shadow-brand-blue/40 transform hover:-translate-y-1">
                             Book Appointment <i class="fa-solid fa-arrow-right"></i>
                         </a>
-                        <a href="tel:7275558751" class="w-full sm:w-auto flex items-center justify-center gap-2 bg-transparent hover:bg-slate-800 text-white border-2 border-slate-600 px-8 py-4 rounded-xl font-bold transition-all shadow-sm transform hover:-translate-y-1 text-center">
+                        <a href="tel:7275558751" class="flex items-center justify-center gap-2 bg-transparent hover:bg-slate-800 text-white border-2 border-slate-600 px-8 py-4 rounded-xl font-bold transition-all shadow-sm transform hover:-translate-y-1">
                             <i class="fa-solid fa-phone-volume"></i> Call: 7275558751
                         </a>
                     </div>
 
                     <!-- Trust Indicators -->
-                    <div class="mt-8 sm:mt-10 flex flex-wrap items-center gap-4 sm:gap-6 text-xs sm:text-sm text-slate-400 font-medium border-t border-slate-700 pt-6">
-                        <div class="flex items-center gap-2"><i class="fa-solid fa-certificate text-amber-500 text-lg sm:text-xl shrink-0"></i> ISO 9001:2015</div>
-                        <div class="flex items-center gap-2"><i class="fa-solid fa-shield-heart text-brand-lightGreen text-lg sm:text-xl shrink-0"></i> Cashless Facility</div>
-                        <div class="flex items-center gap-2"><i class="fa-solid fa-hospital-user text-blue-400 text-lg sm:text-xl shrink-0"></i> Ayushman Bharat</div>
+                    <div class="mt-10 flex items-center gap-6 text-sm text-slate-400 font-medium border-t border-slate-700 pt-6">
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-certificate text-amber-500 text-xl"></i> ISO 9001:2015</div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-shield-heart text-brand-lightGreen text-xl"></i> Cashless Facility</div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-hospital-user text-blue-400 text-xl"></i> Ayushman Bharat</div>
                     </div>
                 </div>
 
@@ -299,7 +295,7 @@
                 <div class="reveal-right active relative hidden lg:block">
                     <div class="grid grid-cols-2 gap-4 relative">
                         <div class="space-y-4 pt-12">
-                            <img src="Images/8.png" alt="Hospital Building" class="rounded-2xl shadow-premium object-cover h-64 w-full transform hover:scale-105 transition-transform duration-500">
+                            <img src="Images/8.png" class="rounded-2xl shadow-premium object-cover h-64 w-full transform hover:scale-105 transition-transform duration-500">
                             <div class="glass-card rounded-2xl p-6 shadow-premium relative overflow-hidden group cursor-pointer border-none bg-slate-800/80 text-white">
                                 <div class="absolute inset-0 bg-brand-green/20 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
                                 <i class="fa-solid fa-bed-pulse text-3xl text-brand-lightGreen mb-3 relative z-10"></i>
@@ -687,9 +683,7 @@
                 <div class="bg-white h-20 rounded-lg shadow-sm border border-slate-100 flex items-center justify-center font-bold text-slate-400 p-4 text-center text-sm grayscale hover:grayscale-0 transition-all cursor-default">Aditya Birla Health</div>
                 <div class="bg-white h-20 rounded-lg shadow-sm border border-slate-100 flex items-center justify-center font-bold text-slate-400 p-4 text-center text-sm grayscale hover:grayscale-0 transition-all cursor-default">Go Digit</div>
                 <div class="bg-white h-20 rounded-lg shadow-sm border border-slate-100 flex items-center justify-center font-bold text-slate-400 p-4 text-center text-sm grayscale hover:grayscale-0 transition-all cursor-default">Royal Sundaram</div>
-                <div class="bg-white h-20 rounded-lg shadow-sm border border-slate-100 flex items-center justify-center font-bold text-slate-400 p-4 text-center text-sm grayscale hover:grayscale-0 transition-all cursor-default">Care Health</div>
-
-                <!-- <div class="bg-brand-green/10 border-brand-green/30 h-20 rounded-lg shadow-sm border flex items-center justify-center font-bold text-brand-green p-4 text-center text-sm cursor-default">Ayushman Bharat</div> -->
+                <div class="bg-brand-green/10 border-brand-green/30 h-20 rounded-lg shadow-sm border flex items-center justify-center font-bold text-brand-green p-4 text-center text-sm cursor-default">Ayushman Bharat</div>
             </div>
         </div>
     </section>
@@ -849,9 +843,9 @@
                         </div>
                         <div class="flex items-start gap-4">
                             <i class="fa-solid fa-envelope mt-1 text-brand-blue text-xl w-6"></i>
-                            <div class="overflow-hidden">
+                            <div>
                                 <h4 class="font-bold text-slate-900">Email Address</h4>
-                                <p class="text-sm text-slate-600 break-all sm:break-normal">prabhathospital976@gmail.com</p>
+                                <p class="text-sm text-slate-600">prabhathospital976@gmail.com</p>
                             </div>
                         </div>
                     </div>
@@ -868,7 +862,7 @@
                                 <label class="block text-sm font-medium text-slate-700 mb-1">Full Name *</label>
                                 <input type="text" id="fullName" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition-all" placeholder="John Doe">
                             </div>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="grid grid-cols-2 gap-4">
                                 <div>
                                     <label class="block text-sm font-medium text-slate-700 mb-1">Phone Number *</label>
                                     <input type="tel" id="phone" required pattern="[0-9]{10}" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition-all" placeholder="10-digit number">
@@ -935,10 +929,7 @@
                 <!-- Branding -->
                 <div>
                     <div class="flex items-center gap-2 mb-4">
-                        <div class="w-10 h-10 shrink-0">
-                            <!-- Dummy Logo Image for Footer -->
-                            <img src="Images/logoo.png" alt="Prabhat Hospital Logo" class="w-full h-full object-cover rounded-xl shadow-sm border border-slate-700">
-                        </div>
+                        <div class="w-10 h-10 bg-brand-blue text-white rounded-lg flex items-center justify-center font-bold">PH</div>
                         <h2 class="text-xl font-bold text-white">Prabhat Hospital</h2>
                     </div>
                     <p class="text-sm text-slate-400 mb-4">Multi Speciality & Trauma Centre. Providing advanced healthcare with compassion and excellence in Varanasi.</p>
@@ -1004,52 +995,47 @@
     </footer>
 
     <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/917275558751" target="_blank" class="fixed bottom-4 right-5 sm:bottom-6 sm:right-6 w-12 h-12 sm:w-14 sm:h-14 bg-green-500 text-white rounded-full flex items-center justify-center text-2xl sm:text-3xl shadow-lg hover:scale-110 transition-transform z-40 pulse-ring">
+    <a href="https://wa.me/917275558751" target="_blank" class="fixed bottom-6 right-6 w-14 h-14 bg-green-500 text-white rounded-full flex items-center justify-center text-3xl shadow-lg hover:scale-110 transition-transform z-40 pulse-ring">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
     <!-- Back to Top -->
-    <button id="backToTop" class="fixed bottom-20 right-5 sm:bottom-24 sm:right-6 w-10 h-10 bg-slate-800 text-white rounded-full flex items-center justify-center shadow-lg opacity-0 pointer-events-none transition-all duration-300 z-40 hover:bg-brand-blue">
+    <button id="backToTop" class="fixed bottom-24 right-6 w-10 h-10 bg-slate-800 text-white rounded-full flex items-center justify-center shadow-lg opacity-0 pointer-events-none transition-all duration-300 z-40 hover:bg-brand-blue">
         <i class="fa-solid fa-arrow-up"></i>
     </button>
 
     <!-- AI Chatbot (Left Corner) -->
-    <div class="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 z-40">
+    <div class="fixed bottom-6 left-6 z-40">
         <!-- Chatbot Toggle Button -->
-        <button id="chatToggleBtn" class="w-12 h-12 sm:w-14 sm:h-14 bg-brand-blue text-white rounded-full flex items-center justify-center text-xl sm:text-2xl shadow-lg hover:scale-110 transition-transform shadow-brand-blue/40">
+        <button id="chatToggleBtn" class="w-14 h-14 bg-brand-blue text-white rounded-full flex items-center justify-center text-2xl shadow-lg hover:scale-110 transition-transform shadow-brand-blue/40">
             <i class="fa-solid fa-robot"></i>
         </button>
 
         <!-- Chatbot Window -->
-        <div id="chatbot-window" class="absolute bottom-16 left-0 w-[290px] sm:w-80 bg-white rounded-2xl shadow-2xl border border-slate-200 flex flex-col overflow-hidden h-96 z-50">
+        <div id="chatbot-window" class="absolute bottom-16 left-0 w-80 bg-white rounded-2xl shadow-2xl border border-slate-200 flex flex-col overflow-hidden h-96">
             <!-- Header -->
             <div class="bg-gradient-to-r from-brand-blue to-blue-700 text-white p-4 flex justify-between items-center">
                 <div class="flex items-center gap-2">
                     <i class="fa-solid fa-robot text-xl"></i>
                     <div>
                         <h4 class="font-bold text-sm">Prabhat Assistant</h4>
-                        <span class="text-[10px] text-green-300 flex items-center gap-1"><span class="w-2 h-2 bg-green-400 rounded-full inline-block animate-pulse"></span> Online</span>
+                        <span class="text-[10px] text-green-300 flex items-center gap-1"><span class="w-2 h-2 bg-green-400 rounded-full inline-block"></span> Online</span>
                     </div>
                 </div>
                 <button id="chatCloseBtn" class="text-white hover:text-slate-200"><i class="fa-solid fa-xmark"></i></button>
             </div>
             
             <!-- Chat Area -->
-            <div id="chatMessages" class="flex-1 p-4 overflow-y-auto flex flex-col bg-slate-50 text-sm scroll-smooth">
+            <div id="chatMessages" class="flex-1 p-4 overflow-y-auto flex flex-col bg-slate-50 text-sm">
                 <div class="chat-bubble bot-msg shadow-sm">
-                    Hello! 👋 I'm the Prabhat Hospital AI Assistant. How can I help you today?
-                    <div class="flex flex-wrap gap-2 mt-3">
-                        <button onclick="document.getElementById('chatInput').value='Emergency'; document.getElementById('chatSendBtn').click();" class="bg-red-50 text-red-600 border border-red-200 px-2 py-1 rounded-md text-[11px] font-bold hover:bg-red-100 transition-colors">🚨 Emergency</button>
-                        <button onclick="document.getElementById('chatInput').value='Book Appointment'; document.getElementById('chatSendBtn').click();" class="bg-blue-50 text-brand-blue border border-brand-blue/30 px-2 py-1 rounded-md text-[11px] font-bold hover:bg-blue-100 transition-colors">📅 Book Appointment</button>
-                        <button onclick="document.getElementById('chatInput').value='Our Doctors'; document.getElementById('chatSendBtn').click();" class="bg-slate-100 text-slate-700 border border-slate-300 px-2 py-1 rounded-md text-[11px] font-bold hover:bg-slate-200 transition-colors">👨‍⚕️ Find Doctor</button>
-                    </div>
+                    Hello! 👋 I'm the Prabhat Hospital AI Assistant. How can I help you today? You can ask about timings, doctors, emergency, or address.
                 </div>
             </div>
             
             <!-- Input Area -->
             <div class="p-3 bg-white border-t border-slate-100 flex gap-2">
-                <input type="text" id="chatInput" class="flex-1 px-3 py-2 border border-slate-300 rounded-full focus:outline-none focus:border-brand-blue text-sm bg-slate-50" placeholder="Type your question...">
-                <button id="chatSendBtn" class="w-10 h-10 bg-brand-blue text-white rounded-full flex items-center justify-center hover:bg-blue-800 transition-transform hover:scale-105 shadow-md shrink-0">
+                <input type="text" id="chatInput" class="flex-1 px-3 py-2 border border-slate-300 rounded-full focus:outline-none focus:border-brand-blue text-sm" placeholder="Type your question...">
+                <button id="chatSendBtn" class="w-10 h-10 bg-brand-blue text-white rounded-full flex items-center justify-center hover:bg-blue-800 transition-colors">
                     <i class="fa-solid fa-paper-plane text-xs"></i>
                 </button>
             </div>
@@ -1073,7 +1059,7 @@
                 let el = document.createElement('i');
                 let iconClass = icons[Math.floor(Math.random() * icons.length)];
                 el.className = `fa-solid ${iconClass} particle`;
-                el.style.left = `${Math.random() * 100}%`;
+                el.style.left = `${Math.random() * 100}vw`;
                 el.style.fontSize = `${Math.random() * 20 + 10}px`;
                 el.style.animationDuration = `${Math.random() * 15 + 10}s`;
                 el.style.animationDelay = `${Math.random() * 5}s`;
@@ -1114,13 +1100,13 @@
                 
                 if(isMobileMenuOpen){
                     mobileMenu.classList.remove('max-h-0');
-                    mobileMenu.classList.add('max-h-[500px]'); 
+                    mobileMenu.classList.add('max-h-[500px]'); // Slide down
                     icon.classList.remove('fa-bars');
                     icon.classList.add('fa-xmark');
-                    icon.style.transform = "rotate(90deg)";
+                    icon.style.transform = "rotate(90deg)"; // Premium interaction
                 } else {
                     mobileMenu.classList.remove('max-h-[500px]');
-                    mobileMenu.classList.add('max-h-0'); 
+                    mobileMenu.classList.add('max-h-0'); // Slide up
                     icon.classList.remove('fa-xmark');
                     icon.classList.add('fa-bars');
                     icon.style.transform = "rotate(0deg)";
@@ -1135,6 +1121,7 @@
                 });
             });
 
+            // Hide mobile menu immediately on resize to desktop widths (768px+)
             window.addEventListener('resize', () => {
                 if (window.innerWidth >= 768 && isMobileMenuOpen) { 
                     toggleMobileMenu();
@@ -1203,7 +1190,7 @@
                 }, 1500);
             });
 
-            // --- 8. SUPER INTELLIGENT LOCAL AI ENGINE ---
+            // --- 8. Highly Intelligent Local AI Chatbot Logic ---
             const chatToggleBtn = document.getElementById('chatToggleBtn');
             const chatCloseBtn = document.getElementById('chatCloseBtn');
             const chatbotWindow = document.getElementById('chatbot-window');
@@ -1227,11 +1214,7 @@
                     div.textContent = msg;
                 }
                 chatMessages.appendChild(div);
-                
-                // Smooth scroll to bottom
-                setTimeout(() => {
-                    chatMessages.scrollTo({ top: chatMessages.scrollHeight, behavior: 'smooth' });
-                }, 50);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
             }
 
             function showTypingIndicator() {
@@ -1240,7 +1223,7 @@
                 div.className = 'typing-indicator shadow-sm';
                 div.innerHTML = '<div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>';
                 chatMessages.appendChild(div);
-                chatMessages.scrollTo({ top: chatMessages.scrollHeight, behavior: 'smooth' });
+                chatMessages.scrollTop = chatMessages.scrollHeight;
             }
 
             function hideTypingIndicator() {
@@ -1248,157 +1231,102 @@
                 if (indicator) indicator.remove();
             }
 
+            // --- 8. SUPER INTELLIGENT LOCAL AI ENGINE ---
+            
             // Conversation Context Memory
             let currentContext = null;
-
-            // Premium HTML UI Generators for Doctors
-            const renderDocCard = (color, dept, name, degree) => `
-                <div class='bg-white p-3 rounded-lg border border-slate-200 mt-2 shadow-sm border-l-4 border-l-${color}-500'>
-                    <span class='text-[10px] font-bold text-${color}-600 uppercase tracking-wide block mb-1'>${dept}</span>
-                    <h4 class='font-bold text-slate-900 leading-tight'>${name}</h4>
-                    <p class='text-xs text-slate-500 mt-0.5'>${degree}</p>
-                </div>
-            `;
 
             // Comprehensive Knowledge Base & Intent Mapping
             const nlpDatabase = [
                 {
                     intent: 'emergency',
-                    keywords: ['emergency', 'accident', 'trauma', 'urgent', 'heart attack', 'casualty', 'ambulance', 'critical', 'dying', 'blood', 'serious', 'severe', 'help'],
-                    response: "🚨 <b>MEDICAL EMERGENCY:</b> We provide 24×7 Emergency and Trauma care with advanced life support ambulances.<br><br><a href='tel:7275558751' class='inline-flex items-center justify-center w-full gap-2 mt-2 bg-red-600 text-white px-4 py-2.5 rounded-lg font-bold text-sm hover:bg-red-700 shadow-md'><i class='fa-solid fa-phone-volume'></i> Call 7275558751</a>"
+                    keywords: ['emergency', 'accident', 'trauma', 'urgent', 'heart attack', 'casualty', 'ambulance', 'critical', 'dying', 'blood', 'serious', 'severe'],
+                    response: "🚨 <b>MEDICAL EMERGENCY:</b> We provide 24×7 Emergency and Trauma care with advanced life support ambulances.<br><br><a href='tel:7275558751' class='inline-flex items-center gap-2 mt-2 bg-red-600 text-white px-4 py-2 rounded-lg font-bold text-sm hover:bg-red-700'><i class='fa-solid fa-phone-volume'></i> Call Emergency Now</a>"
                 },
                 {
                     intent: 'appointment',
-                    keywords: ['appointment', 'book', 'schedule', 'meet', 'consultation', 'opd', 'checkup', 'visit', 'booking'],
-                    response: "📅 <b>Book an Appointment:</b><br>You can easily schedule a consultation online or call our desk.<br><br><a href='#appointment' onclick='document.getElementById(\"chatbot-window\").classList.remove(\"open\")' class='inline-flex items-center justify-center w-full gap-2 mt-2 bg-brand-blue text-white px-4 py-2.5 rounded-lg font-bold text-sm hover:bg-blue-800 shadow-md'><i class='fa-regular fa-calendar-check'></i> Fill Booking Form</a>"
+                    keywords: ['appointment', 'book', 'schedule', 'meet', 'consultation', 'opd', 'checkup', 'visit', 'apointment', 'booking', 'show doctor'],
+                    response: "📅 <b>Book an Appointment:</b><br>You can book online or call our desk.<br><br><a href='#appointment' onclick='document.getElementById(\"chatbot-window\").classList.remove(\"open\")' class='inline-flex items-center gap-2 mt-2 bg-brand-blue text-white px-4 py-2 rounded-lg font-bold text-sm hover:bg-blue-800'><i class='fa-regular fa-calendar-check'></i> Book Online</a>"
                 },
                 {
                     intent: 'location',
                     keywords: ['location', 'address', 'where', 'reach', 'map', 'directions', 'situated', 'located', 'varanasi', 'place', 'city'],
-                    response: "📍 <b>Hospital Address:</b><br>Kerakatpur, near 38th Battalion PAC Gate, Bhullanpur, Varanasi, UP.<br><br><a href='https://maps.google.com/?q=Prabhat+Hospital,Kerakatpur,Bhullanpur,Varanasi' target='_blank' class='inline-flex items-center justify-center w-full gap-2 mt-2 bg-slate-100 text-brand-blue border border-brand-blue px-4 py-2.5 rounded-lg font-bold text-sm hover:bg-blue-50'><i class='fa-solid fa-map-location-dot'></i> Open Google Maps</a>"
+                    response: "📍 <b>Our Address:</b><br>Kerakatpur, near 38th Battalion PAC Gate, Bhullanpur, Varanasi, Uttar Pradesh.<br><br><a href='https://maps.google.com/?q=Prabhat+Hospital,Kerakatpur,Bhullanpur,Varanasi' target='_blank' class='inline-flex items-center gap-2 mt-2 bg-slate-100 text-brand-blue border border-brand-blue px-4 py-2 rounded-lg font-bold text-sm hover:bg-blue-50'><i class='fa-solid fa-map-location-dot'></i> Open in Google Maps</a>"
                 },
                 {
                     intent: 'contact',
-                    keywords: ['contact', 'number', 'phone', 'call', 'email', 'whatsapp', 'mobile', 'telephone', 'reach'],
-                    response: "📞 <b>Contact Support:</b><br><br><b>Helpline:</b> <a href='tel:7275558751' class='text-brand-blue font-bold'>7275558751</a>, 8601802832<br><b>WhatsApp:</b> <a href='https://wa.me/917275558751' class='text-green-600 font-bold'>Chat Now</a><br><b>Email:</b> prabhathospital976@gmail.com"
+                    keywords: ['contact', 'number', 'phone', 'call', 'email', 'whatsapp', 'mobile', 'telephone', 'reach out'],
+                    response: "📞 <b>Contact Support:</b><br>• Helpline: 7275558751, 8601802832<br>• WhatsApp: 7275558751<br>• Email: prabhathospital976@gmail.com"
                 },
                 {
                     intent: 'insurance',
                     keywords: ['insurance', 'cashless', 'ayushman', 'bharat', 'scheme', 'tpa', 'policy', 'claim', 'mediclaim', 'hdfc', 'star health', 'sbi'],
-                    response: "🛡️ <b>Insurance & Cashless:</b><br>Yes! We accept <b>Ayushman Bharat</b> cards for free treatment (up to ₹5 Lakhs). We also provide seamless cashless facilities via major TPA partners like HDFC ERGO, Star Health, SBI General, and more."
+                    response: "🛡️ <b>Insurance & Cashless:</b><br>Yes, we accept <b>Ayushman Bharat</b> cards for free treatment (up to ₹5 Lakhs). We also provide cashless facilities via major TPA partners like HDFC ERGO, Star Health, SBI General, and more."
                 },
                 {
                     intent: 'timing',
                     keywords: ['time', 'timing', 'hours', 'open', 'close', 'visiting', 'when', 'opd days', 'shift'],
-                    response: "⏰ <b>Hospital Timings:</b><br>• <b>Emergency & Pharmacy:</b> 24×7 Open<br>• <b>OPD Consultations:</b> 10:00 AM to 4:00 PM (Subject to doctor availability)."
+                    response: "⏰ <b>Hospital Timings:</b><br>• <b>Emergency & Pharmacy:</b> 24×7 Open<br>• <b>OPD Consultations:</b> Usually 10:00 AM to 4:00 PM (varies by doctor). Please call to confirm specific specialist availability."
                 },
                 {
                     intent: 'cost',
                     keywords: ['cost', 'price', 'fee', 'charge', 'bill', 'estimate', 'expensive', 'cheap', 'money', 'rupees'],
-                    response: "💰 <b>Pricing & Fees:</b><br>Standard consultation fees range between ₹500 - ₹1000. For exact surgery estimates or ICU costs, please contact our billing desk directly at <a href='tel:7275558751' class='text-brand-blue font-bold'>7275558751</a>."
+                    response: "💰 <b>Pricing & Fees:</b><br>Consultation fees vary by specialist (typically ₹500 - ₹1000). For exact surgery estimates, room charges, or ICU costs, please contact our billing desk at <b>7275558751</b>."
                 },
                 {
                     intent: 'facilities_rooms',
                     keywords: ['icu', 'nicu', 'picu', 'bed', 'room', 'ward', 'admit', 'admission', 'oxygen', 'ventilator', 'stay', 'private', 'general'],
-                    response: "🏥 <b>Facilities & Admissions:</b><br>We feature advanced critical care units (ICU, NICU, PICU) equipped with ventilators and 24-hr centralized oxygen. We offer both hygienic General Wards and premium Private Rooms."
+                    response: "🏥 <b>Facilities & Admissions:</b><br>We have highly advanced critical care units (ICU, NICU, PICU) equipped with ventilators and 24-hr centralized oxygen. We offer both General Wards and Private Rooms based on patient needs."
                 },
                 {
                     intent: 'diagnostics',
                     keywords: ['test', 'blood test', 'xray', 'x-ray', 'ultrasound', 'pathology', 'lab', 'report', 'ecg', 'eeg', 'emg', 'scan'],
-                    response: "🔬 <b>Diagnostics & Labs:</b><br>We house an advanced Pathology Lab, Digital X-Ray, Ultrasound, ECG, EEG, and EMG facilities under one roof. Home sample collection is also available."
+                    response: "🔬 <b>Diagnostics & Labs:</b><br>We have an in-house advanced Pathology Lab, Digital X-Ray, Ultrasound, ECG, EEG, and EMG facilities. Home sample collection is also available."
                 },
-                
-                // --- STRICT DOCTOR & DEPARTMENT ROUTING ---
+                {
+                    intent: 'amenities',
+                    keywords: ['parking', 'food', 'canteen', 'pharmacy', 'medicine', 'medical store', 'wheelchair', 'lift', 'elevator'],
+                    response: "🏪 <b>Hospital Amenities:</b><br>• 24×7 In-house Pharmacy<br>• Wheelchair & Stretcher assistance at entrance<br>• Clean drinking water & waiting lounges<br>• Parking space available."
+                },
                 {
                     intent: 'ortho',
-                    keywords: ['ortho', 'orthopaedics', 'orthopedic', 'bone', 'joint', 'fracture', 'spine', 'knee', 'calcium', 'pp singh', 'p p singh', 'omkar', 'ortho surgeon'],
-                    response: `🦴 <b>Orthopaedics (Bone & Joint):</b>
-                        <div class='flex flex-col gap-1'>
-                            ${renderDocCard('blue', 'Senior Orthopaedic', 'Dr. P. P. Singh', 'M.B.B.S., M.S., M.Ch')}
-                            ${renderDocCard('blue', 'Orthopaedic Surgeon', 'Dr. Omkar Pandey', 'M.B.B.S., M.S. (Ortho)')}
-                        </div>`
+                    keywords: ['ortho', 'bone', 'joint', 'fracture', 'orthopaedic', 'pp singh', 'omkar', 'spine', 'knee', 'calcium'],
+                    response: "🦴 <b>Orthopaedics (Bone & Joint):</b><br>Our expert orthopaedic surgeons are <b>Dr. P. P. Singh</b> and <b>Dr. Omkar Pandey</b>. They specialize in trauma, fractures, and joint surgeries."
                 },
                 {
                     intent: 'pedia',
-                    keywords: ['pedia', 'pediatrics', 'child', 'baby', 'kid', 'infant', 'neonatal', 'rk srivastava', 'r k srivastava', 'pediatrician'],
-                    response: `👶 <b>Pediatrics (Child Care):</b>
-                        ${renderDocCard('pink', 'Senior Pediatrician', 'Dr. R. K. Srivastava', 'M.B.B.S., M.D.')}
-                        <p class='mt-2 text-xs text-slate-600'>We also have advanced NICU and PICU facilities for critical childcare.</p>`
-                },
-                {
-                    intent: 'ent',
-                    keywords: ['ent', 'ear', 'nose', 'throat', 'hearing', 'deaf', 'sinus', 'vijay rai', 'vikram gupta ent'],
-                    response: `👂 <b>ENT (Ear, Nose & Throat):</b>
-                        <div class='flex flex-col gap-1'>
-                            ${renderDocCard('amber', 'ENT Specialist', 'Dr. Vijay Rai', 'M.B.B.S.')}
-                            ${renderDocCard('amber', 'ENT Specialist', 'Dr. Vikram Gupta', 'M.B.B.S., D.M.B.')}
-                        </div>`
-                },
-                {
-                    intent: 'gen_med',
-                    keywords: ['medicine', 'general medicine', 'physician', 'fever', 'viral', 'sickness', 'illness', 'tribhuvan', 'sanjay singh'],
-                    response: `🩺 <b>General Medicine:</b>
-                        <div class='flex flex-col gap-1'>
-                            ${renderDocCard('green', 'Senior Physician', 'Dr. Tribhuvan Gupta', 'M.B.B.S., M.D. (Medicine)')}
-                            ${renderDocCard('green', 'Physician', 'Dr. Sanjay Singh', 'M.B.B.S., M.S. (Ortho)')}
-                        </div>`
+                    keywords: ['child', 'baby', 'kid', 'pediatric', 'pedia', 'srivastava', 'infant', 'neonatal'],
+                    response: "👶 <b>Pediatrics (Child Care):</b><br><b>Dr. R. K. Srivastava</b> provides expert childcare, managing everything from general pediatrics to our advanced NICU and PICU critical care units."
                 },
                 {
                     intent: 'cardio',
-                    keywords: ['cardio', 'cardiology', 'heart', 'bp', 'blood pressure', 'chest pain', 'heart attack', 'rajesh'],
-                    response: `❤️ <b>Cardiology (Heart Specialist):</b>
-                        ${renderDocCard('red', 'Senior Cardiologist', 'Dr. Rajesh Kumar Gupta', 'M.B.B.S., M.D., D.M.')}`
-                },
-                {
-                    intent: 'chest',
-                    keywords: ['chest', 'respiratory', 'lungs', 'asthma', 'breathing', 'tb', 'cough', 'vs singh', 'v s singh'],
-                    response: `🫁 <b>Chest & Respiratory:</b>
-                        ${renderDocCard('teal', 'Chest Specialist', 'Dr. V. S. Singh', 'M.B.B.S., M.D. Chest')}`
-                },
-                {
-                    intent: 'neuro',
-                    keywords: ['neuro', 'neurology', 'neurologist', 'brain', 'nerve', 'paralysis', 'stroke', 'headache', 'rr rai', 'r r rai'],
-                    response: `🧠 <b>Neurology:</b>
-                        ${renderDocCard('purple', 'Senior Neurologist', 'Dr. R. R. Rai', 'M.B.B.S., M.D.')}
-                        <div class='mt-2'><button onclick="document.getElementById('chatInput').value='Book Appointment'; document.getElementById('chatSendBtn').click();" class='bg-purple-50 text-purple-700 px-3 py-1.5 rounded-lg text-xs font-bold border border-purple-200'>Book Dr. Rai</button></div>`
-                },
-                {
-                    intent: 'surgery',
-                    keywords: ['surgery', 'surgeon', 'operation', 'laparoscopic', 'gallbladder', 'appendix', 'manoj kumar'],
-                    response: `🔪 <b>General Surgery:</b>
-                        ${renderDocCard('indigo', 'General & Laparoscopic Surgeon', 'Dr. Manoj Kumar', 'M.B.B.S., M.S., M.Ch')}`
+                    keywords: ['heart', 'chest', 'cardio', 'cardiology', 'rajesh', 'vs singh', 'respiratory', 'lungs', 'asthma', 'breathing'],
+                    response: "❤️ <b>Cardiology & Chest:</b><br><b>Dr. Rajesh Kumar Gupta</b> is our specialist for Cardiology, and <b>Dr. V.S. Singh</b> specializes in Chest & Respiratory conditions."
                 },
                 {
                     intent: 'gynae',
-                    keywords: ['gynae', 'gynecology', 'women', 'pregnant', 'delivery', 'maternity', 'obstetrics', 'ovarian', 'uterus', 'period'],
-                    response: `👩‍⚕️ <b>Obstetrics & Gynecology:</b>
-                        ${renderDocCard('rose', 'Obs & Gynae Specialist', 'Dr. Vikram Gupta', 'Specialist')}
-                        <p class='mt-2 text-xs text-slate-600'>Comprehensive women's care and maternity services available.</p>`
-                },
-                {
-                    intent: 'dental',
-                    keywords: ['dental', 'dentist', 'teeth', 'tooth', 'cavity', 'jaw', 'vivek agrawal'],
-                    response: `🦷 <b>Dental Surgery:</b>
-                        ${renderDocCard('sky', 'Dental Surgeon', 'Dr. Vivek Agrawal', 'M.S., M.Ch')}`
+                    keywords: ['women', 'pregnant', 'delivery', 'gynae', 'maternity', 'obstetrics', 'ovarian', 'uterus'],
+                    response: "👩‍⚕️ <b>Women's Care:</b><br>We provide comprehensive Obstetrics & Gynecology services, including normal/cesarean deliveries, antenatal care, and specialized female surgeries."
                 },
                 {
                     intent: 'doctors_general',
-                    keywords: ['doctor', 'list', 'specialist', 'who is', 'staff', 'team', 'doctors'],
-                    response: "👨‍⚕️ <b>Our Expert Panel:</b><br>We have senior specialists across 10+ departments.<br><br><b>Which specialist do you need?</b><br><div class='mt-2 flex flex-wrap gap-1.5'><button onclick='document.getElementById(\"chatInput\").value=\"Neuro\"; document.getElementById(\"chatSendBtn\").click();' class='bg-white border border-slate-300 px-2 py-1 rounded text-xs'>🧠 Neuro</button> <button onclick='document.getElementById(\"chatInput\").value=\"Ortho\"; document.getElementById(\"chatSendBtn\").click();' class='bg-white border border-slate-300 px-2 py-1 rounded text-xs'>🦴 Ortho</button> <button onclick='document.getElementById(\"chatInput\").value=\"Heart\"; document.getElementById(\"chatSendBtn\").click();' class='bg-white border border-slate-300 px-2 py-1 rounded text-xs'>❤️ Heart</button> <button onclick='document.getElementById(\"chatInput\").value=\"Child\"; document.getElementById(\"chatSendBtn\").click();' class='bg-white border border-slate-300 px-2 py-1 rounded text-xs'>👶 Child</button></div>"
+                    keywords: ['doctor', 'list', 'specialist', 'physician', 'surgeon', 'who is', 'staff', 'team'],
+                    response: "👨‍⚕️ <b>Our Expert Panel:</b><br>We have senior specialists in Orthopaedics, Pediatrics, ENT, Cardiology, General Medicine, Neurology, and Surgery.<br><br><a href='#doctors' onclick='document.getElementById(\"chatbot-window\").classList.remove(\"open\")' class='inline-block mt-2 text-brand-blue font-bold underline'>View All Doctors</a>"
                 }
             ];
 
             function processNaturalLanguage(input) {
-                // Strip punctuation and convert to lowercase
-                let cleanText = input.toLowerCase().replace(/[^\w\s]/gi, '').trim();
+                // Clean input: lowercase, remove special characters except spaces
+                let cleanText = input.toLowerCase().replace(/[^\w\s]/gi, '');
+                let words = cleanText.split(/\s+/);
                 
                 if (!cleanText) return "Please type a question so I can assist you.";
 
-                // 1. Direct Conversational Overrides
+                // 1. Handle Conversational & Small Talk
                 const greetings = ['hi', 'hello', 'hey', 'hii', 'helo', 'namaste', 'greetings'];
-                if (greetings.includes(cleanText.split(' ')[0])) {
+                if (greetings.includes(words[0])) {
                     currentContext = null;
-                    return "Hello! 👋 Welcome to Prabhat Hospital. I can help you with appointments, doctors, insurance, or emergency info. How can I assist you today?";
+                    return "Hello! 👋 Welcome to Prabhat Hospital. I can help you with appointments, doctors, insurance, emergency info, or facilities. How can I assist you today?";
                 }
                 
                 if (cleanText.includes('thank') || cleanText === 'ok' || cleanText === 'okay' || cleanText === 'good') {
@@ -1407,48 +1335,52 @@
                 }
 
                 if (cleanText.includes('who are you') || cleanText.includes('human') || cleanText.includes('robot') || cleanText.includes('ai')) {
-                    return "I am the Prabhat Hospital AI Assistant. 🤖 I'm here 24/7 to instantly answer your questions and guide you to the right care!";
+                    return "I am the Prabhat Hospital AI Assistant. 🤖 I'm here 24/7 to instantly answer your questions about our hospital!";
                 }
 
-                // 2. Intelligent Scoring Engine (Zero Hallucinations)
-                let bestMatches = [];
+                // 2. Intent Scoring Engine
+                let bestMatch = { intent: null, score: 0, response: "" };
 
                 nlpDatabase.forEach(category => {
                     let score = 0;
-                    
                     category.keywords.forEach(keyword => {
-                        // Exact match OR Prefix Match for words > 4 chars to catch typos (e.g., 'neurolog' captures 'neurology')
+                        // Word boundary regex to match exact words or phrases (prevents 'car' matching 'care')
                         let regex = new RegExp('\\b' + keyword + '\\b', 'i');
-                        if (regex.test(cleanText) || (keyword.length > 4 && cleanText.includes(keyword.substring(0, keyword.length - 1)))) {
+                        if (regex.test(cleanText)) {
+                            // Weight multi-word keywords higher (e.g. 'blood test' is more specific than 'test')
                             score += keyword.includes(' ') ? 3 : 1; 
                         }
                     });
 
-                    if (score > 0) {
-                        // CRITICAL FIX: Context boosting ONLY happens if a base keyword matched above.
-                        if (currentContext) {
-                            if (currentContext === 'doctors_general' && category.intent.match(/ortho|pedia|ent|gen_med|cardio|chest|neuro|surgery|gynae|dental/)) {
-                                score += 5; // Heavy boost to correct department
-                            }
-                            if (currentContext.match(/ortho|pedia|ent|gen_med|cardio|chest|neuro|surgery|gynae|dental/) && category.intent === 'cost') {
-                                score += 2;
-                            }
-                        }
-                        bestMatches.push({ intent: category.intent, score: score, response: category.response });
+                    // Contextual Score Boosting
+                    if (currentContext) {
+                        if (currentContext === 'doctors_general' && category.intent.match(/ortho|pedia|cardio|gynae/)) score += 2;
+                        if (currentContext.match(/ortho|pedia|cardio|gynae/) && category.intent === 'cost') score += 2;
+                    }
+
+                    if (score > bestMatch.score) {
+                        bestMatch = { intent: category.intent, score: score, response: category.response };
                     }
                 });
 
-                // 3. Evaluate & Return Highest Score
-                if (bestMatches.length > 0) {
-                    // Sort descending by score
-                    bestMatches.sort((a, b) => b.score - a.score);
-                    
-                    currentContext = bestMatches[0].intent; // Update memory
-                    return bestMatches[0].response;
+                // 3. Contextual Follow-up Resolvers (Simulated Memory)
+                if (bestMatch.score === 0 && currentContext) {
+                    if (currentContext.match(/ortho|pedia|cardio|gynae|doctors_general/) && (cleanText.includes('fee') || cleanText.includes('cost'))) {
+                        return nlpDatabase.find(x => x.intent === 'cost').response;
+                    }
+                    if (currentContext === 'appointment' && cleanText.includes('time')) {
+                        return nlpDatabase.find(x => x.intent === 'timing').response;
+                    }
                 }
 
-                // 4. Premium Fallback with Quick UI Chips
-                return "I'm not exactly sure what you mean. 🤔<br><br><b>Here are some quick options:</b><br><div class='mt-3 flex flex-col gap-2'><button onclick='document.getElementById(\"chatInput\").value=\"Emergency\"; document.getElementById(\"chatSendBtn\").click();' class='w-full bg-red-50 text-red-600 border border-red-200 px-3 py-2 rounded-lg text-xs font-bold shadow-sm'>🚨 I need an Ambulance</button><button onclick='document.getElementById(\"chatInput\").value=\"Find a Doctor\"; document.getElementById(\"chatSendBtn\").click();' class='w-full bg-blue-50 text-brand-blue border border-blue-200 px-3 py-2 rounded-lg text-xs font-bold shadow-sm'>👨‍⚕️ Find a Doctor</button></div>";
+                // 4. Return Best Match or Fallback
+                if (bestMatch.score > 0) {
+                    currentContext = bestMatch.intent; // Save memory
+                    return bestMatch.response;
+                }
+
+                // Ultimate Fallback
+                return "I'm not quite sure I understand. 🤔<br><br><b>Try asking me things like:</b><br>👉 <i>'I need an ambulance'</i><br>👉 <i>'How to book appointment?'</i><br>👉 <i>'Do you accept Ayushman card?'</i><br>👉 <i>'Who is the heart doctor?'</i>";
             }
 
             function handleChat() {
@@ -1459,14 +1391,14 @@
                 appendMessage(text, 'user', false);
                 chatInput.value = '';
                 
-                // Show "Typing..."
+                // Show thinking animation
                 showTypingIndicator();
                 
                 // Process via NLP Engine
                 const response = processNaturalLanguage(text);
                 
-                // Dynamic human-like delay
-                const delay = Math.max(600, Math.min(1500, response.length * 6)); 
+                // Dynamic delay based on text length to simulate human reading/typing speed
+                const delay = Math.max(800, Math.min(2000, response.length * 8)); 
                 
                 setTimeout(() => {
                     hideTypingIndicator();
