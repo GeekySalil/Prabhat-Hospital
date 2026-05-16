@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prabhat Hospital | Multi Speciality & Trauma Centre | Varanasi</title>
+    <meta name="description" content="Prabhat Hospital provides world-class multi-speciality treatment, emergency care, trauma services, diagnostics, and critical care facilities in Varanasi.">
+    <meta name="keywords" content="Prabhat Hospital, Varanasi Hospital, Trauma Centre, Emergency Hospital, Orthopaedics, Pediatrics, Cashless Treatment, Ayushman Bharat">
+    <meta name="author" content="Prabhat Hospital">
+    
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Prabhat Hospital | Multi Speciality & Trauma Centre">
+    <meta property="og:description" content="Advanced Healthcare With Compassion & Excellence. 24x7 Emergency Support.">
+    <meta property="og:image" content="https://lh3.googleusercontent.com/gps-cs-s/APNQkAFfcq06jLxiqZHcadE2Lxsqij7XNxpQmh4Gz32mpo62RqzrNZPTG_psxNdvACW7tCHT_ZvMQvSWFJAexf2MzG1OyIFBZvorORl6L2G_ZNKopKRkak2qzvlwFkEHLC_oLZ-YX70X62BHttw=s1360-w1360-h1020-rw">
+    
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Hospital",
+      "name": "Prabhat Hospital",
+      "alternateName": "Prabhat Hospital – Multi Speciality & Trauma Centre",
+      "url": "https://prabhathospital.com",
+      "logo": "https://placehold.co/200x80/1e3a8a/ffffff?text=Prabhat+Hospital",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-7275558751",
+        "contactType": "Emergency and Appointments",
+        "areaServed": "IN",
+        "availableLanguage": ["English", "Hindi"]
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Kerakatpur, near 38th Battalion PAC Gate, Bhullanpur",
+        "addressLocality": "Varanasi",
+        "addressRegion": "UP",
+        "addressCountry": "IN"
+      }
+    }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            blue: '#1e3a8a', // Deep medical blue
+                            lightBlue: '#3b82f6',
+                            green: '#059669', // Soft health green
+                            lightGreen: '#10b981',
+                            bg: '#f0fdfa' // Very light teal background
+                        }
+                    },
+                    boxShadow: {
+                        'premium': '0 10px 40px -10px rgba(0,0,0,0.08)',
+                        'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.07)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f0fdfa; overflow-x: hidden; }
+        
+        /* Premium Background Medical Particles */
+        .bg-particles {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            pointer-events: none; z-index: -1; overflow: hidden;
+        }
+        .particle {
+            position: absolute;
+            color: rgba(37, 99, 235, 0.05); /* very faint blue */
+            animation: floatup linear infinite;
+        }
+        @keyframes floatup {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            20% { opacity: 1; }
+            80% { opacity: 1; }
+            100% { transform: translateY(-20vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Preloader */
+        #preloader {
+            position: fixed; inset: 0; background: white; z-index: 9999;
+            display: flex; justify-content: center; align-items: center; transition: opacity 0.5s ease;
+        }
+        .loader-heartbeat {
+            font-size: 50px; color: #1e3a8a;
+            animation: heartbeat 1.2s infinite;
+        }
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            14% { transform: scale(1.3); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.3); }
+            70% { transform: scale(1); }
+        }
+
+        /* Scroll Progress */
+        #scroll-progress {
+            position: fixed; top: 0; left: 0; height: 4px; background: linear-gradient(to right, #059669, #3b82f6);
+            z-index: 1000; width: 0%; transition: width 0.1s ease;
+        }
+
+        /* Marquee */
+        .marquee-wrapper { display: flex; overflow: hidden; width: 100%; white-space: nowrap; }
+        .marquee-content {
+            display: flex; animation: marquee 30s linear infinite; gap: 1rem; padding-right: 1rem;
+        }
+        .marquee-wrapper:hover .marquee-content { animation-play-state: paused; }
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        /* Reveal Animations */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .reveal-left { opacity: 0; transform: translateX(-50px); transition: all 0.8s ease; }
+        .reveal-left.active { opacity: 1; transform: translateX(0); }
+        .reveal-right { opacity: 0; transform: translateX(50px); transition: all 0.8s ease; }
+        .reveal-right.active { opacity: 1; transform: translateX(0); }
+
+        /* Glassmorphism */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+        }
+
+        /* Pulse Animation for Critical Care */
+        .pulse-ring {
+            animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); box-shadow: 0 0 0 0 rgba(5, 150, 105, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(5, 150, 105, 0); }
+            100% { transform: scale(0.8); box-shadow: 0 0 0 0 rgba(5, 150, 105, 0); }
+        }
+
+        /* Chatbot Container */
+        #chatbot-window { transition: all 0.3s ease; transform-origin: bottom left; transform: scale(0); opacity: 0; }
+        #chatbot-window.open { transform: scale(1); opacity: 1; }
+        .chat-bubble { max-width: 80%; padding: 10px 14px; border-radius: 18px; margin-bottom: 8px; font-size: 0.9rem;}
+        .bot-msg { background: #f1f5f9; color: #1e293b; border-bottom-left-radius: 4px; align-self: flex-start; }
+        .user-msg { background: #1e3a8a; color: white; border-bottom-right-radius: 4px; align-self: flex-end; }
+        
+        /* Typing Indicator */
+        .typing-indicator { display: flex; gap: 4px; padding: 12px 16px; background: #f1f5f9; border-radius: 18px; border-bottom-left-radius: 4px; align-self: flex-start; width: fit-content; margin-bottom: 8px; }
+        .typing-dot { width: 6px; height: 6px; background: #94a3b8; border-radius: 50%; animation: typing 1.4s infinite ease-in-out both; }
+        .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+        .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+        @keyframes typing { 0%, 80%, 100% { transform: scale(0); } 40% { transform: scale(1); } }
+    </style>
+</head>
+<body class="text-slate-800 antialiased selection:bg-brand-blue selection:text-white relative">
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="text-center">
+            <i class="fa-solid fa-heart-pulse loader-heartbeat"></i>
+            <h2 class="mt-4 text-xl font-bold text-brand-blue tracking-wider">PRABHAT HOSPITAL</h2>
+            <p class="text-sm text-slate-500">Loading Excellence...</p>
+        </div>
+    </div>
+
+    <!-- Scroll Progress -->
+    <div id="scroll-progress"></div>
+
+    <!-- Animated Medical Background -->
+    <div class="bg-particles" id="particles-container">
+        <!-- JS will inject particles here -->
+    </div>
+
+    <!-- Header & Navigation -->
+    <header class="fixed w-full top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200 transition-all duration-300" id="navbar">
+        <!-- Top Info Strip (Hidden on mobile) -->
+        <div class="bg-brand-blue text-white py-1 px-4 text-xs lg:text-sm hidden md:flex justify-between items-center">
+            <div class="flex gap-4">
+                <span><i class="fa-solid fa-phone mr-1"></i> Emergency: 7275558751, 8601802832</span>
+                <span><i class="fa-solid fa-envelope mr-1"></i> prabhathospital976@gmail.com</span>
+            </div>
+            <div class="flex gap-4">
+                <span>ISO 9001:2015 Certified</span>
+                <span>ID: HOSP9P124820</span>
+                <span>Reg: AL-2344</span>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <div class="w-12 h-12 bg-gradient-to-br from-brand-blue to-brand-lightBlue text-white rounded-xl flex items-center justify-center text-2xl font-bold shadow-lg">
+                        PH
+                    </div>
+                    <div>
+                        <h1 class="text-xl md:text-2xl font-bold text-brand-blue leading-tight">Prabhat Hospital</h1>
+                        <p class="text-[10px] md:text-xs text-brand-green font-semibold tracking-wide uppercase">Multi Speciality & Trauma Centre</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex space-x-3 lg:space-x-8 items-center text-sm lg:text-base whitespace-nowrap">
+                    <a href="#home" class="text-slate-600 hover:text-brand-blue font-medium transition-colors">Home</a>
+                    <a href="#about" class="text-slate-600 hover:text-brand-blue font-medium transition-colors">About</a>
+                    <a href="#services" class="text-slate-600 hover:text-brand-blue font-medium transition-colors">Services</a>
+                    <a href="#doctors" class="text-slate-600 hover:text-brand-blue font-medium transition-colors">Doctors</a>
+                    <a href="#insurance" class="text-slate-600 hover:text-brand-blue font-medium transition-colors">Insurance</a>
+                    <a href="#contact" class="text-slate-600 hover:text-brand-blue font-medium transition-colors">Contact</a>
+                </nav>
+
+                <!-- CTA Button -->
+                <div class="hidden md:flex items-center">
+                    <a href="#appointment" class="bg-brand-green hover:bg-emerald-700 text-white px-4 lg:px-6 py-2 lg:py-2.5 rounded-full text-sm lg:text-base font-semibold transition-all transform hover:-translate-y-0.5 shadow-md shadow-brand-green/30 whitespace-nowrap">
+                        Book Appointment
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-brand-blue focus:outline-none p-2 transition-transform duration-300">
+                        <i class="fa-solid fa-bars text-2xl transition-transform duration-300 block"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel (Animated Slide Down) -->
+        <div id="mobile-menu" class="absolute w-full bg-white border-b border-slate-100 shadow-xl overflow-hidden transition-all duration-300 ease-in-out max-h-0 md:hidden top-[100%] left-0">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#home" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-50 mobile-link border-b border-slate-50 transition-colors">Home</a>
+                <a href="#about" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-50 mobile-link border-b border-slate-50 transition-colors">About</a>
+                <a href="#services" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-50 mobile-link border-b border-slate-50 transition-colors">Services</a>
+                <a href="#doctors" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-50 mobile-link border-b border-slate-50 transition-colors">Doctors</a>
+                <a href="#insurance" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-50 mobile-link border-b border-slate-50 transition-colors">Insurance</a>
+                <a href="#contact" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-brand-blue hover:bg-slate-50 mobile-link transition-colors">Contact</a>
+                <a href="#appointment" class="block w-full text-center mt-4 bg-brand-blue text-white px-6 py-3 rounded-md font-bold mobile-link shadow-md hover:bg-blue-800 transition-colors">Book Appointment</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden relative bg-slate-900 text-white">
+        <!-- Abstract Shapes -->
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-bl from-brand-blue/20 to-transparent rounded-bl-full z-0 pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-1/3 h-1/2 bg-gradient-to-tr from-brand-green/20 to-transparent rounded-tr-full z-0 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                
+                <!-- Hero Content -->
+                <div class="reveal-left active">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800 text-blue-300 text-sm font-semibold mb-6 shadow-sm border border-slate-700">
+                        <span class="relative flex h-3 w-3">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-lightBlue opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-3 w-3 bg-brand-lightBlue"></span>
+                        </span>
+                        24×7 Emergency Service Available
+                    </div>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
+                        Advanced Healthcare With <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-brand-lightBlue">Compassion & Excellence</span>
+                    </h1>
+                    <p class="text-lg text-slate-300 mb-8 leading-relaxed max-w-xl">
+                        Prabhat Hospital provides world-class multi-speciality treatment, emergency care, trauma services, diagnostics, and critical care facilities with experienced specialists and 24×7 support.
+                    </p>
+                    <p class="text-md italic text-brand-lightGreen font-medium mb-8">"Your Health, Our Effort"</p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#appointment" class="flex items-center justify-center gap-2 bg-brand-blue hover:bg-blue-600 text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg hover:shadow-brand-blue/40 transform hover:-translate-y-1">
+                            Book Appointment <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="tel:7275558751" class="flex items-center justify-center gap-2 bg-transparent hover:bg-slate-800 text-white border-2 border-slate-600 px-8 py-4 rounded-xl font-bold transition-all shadow-sm transform hover:-translate-y-1">
+                            <i class="fa-solid fa-phone-volume"></i> Call: 7275558751
+                        </a>
+                    </div>
+
+                    <!-- Trust Indicators -->
+                    <div class="mt-10 flex items-center gap-6 text-sm text-slate-400 font-medium border-t border-slate-700 pt-6">
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-certificate text-amber-500 text-xl"></i> ISO 9001:2015</div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-shield-heart text-brand-lightGreen text-xl"></i> Cashless Facility</div>
+                        <div class="flex items-center gap-2"><i class="fa-solid fa-hospital-user text-blue-400 text-xl"></i> Ayushman Bharat</div>
+                    </div>
+                </div>
+
+                <!-- Hero Image Grid -->
+                <div class="reveal-right active relative hidden lg:block">
+                    <div class="grid grid-cols-2 gap-4 relative">
+                        <div class="space-y-4 pt-12">
+                            <img src="Images/8.png" class="rounded-2xl shadow-premium object-cover h-64 w-full transform hover:scale-105 transition-transform duration-500">
+                            <div class="glass-card rounded-2xl p-6 shadow-premium relative overflow-hidden group cursor-pointer border-none bg-slate-800/80 text-white">
+                                <div class="absolute inset-0 bg-brand-green/20 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+                                <i class="fa-solid fa-bed-pulse text-3xl text-brand-lightGreen mb-3 relative z-10"></i>
+                                <h3 class="font-bold text-white text-lg relative z-10">ICU / NICU / PICU</h3>
+                                <p class="text-sm text-slate-300 mt-1 relative z-10">Advanced critical care</p>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="glass-card rounded-2xl p-6 shadow-premium relative overflow-hidden group cursor-pointer bg-brand-blue border-none text-white">
+                                <div class="absolute right-[-20px] top-[-20px] opacity-10">
+                                    <i class="fa-solid fa-truck-medical text-8xl"></i>
+                                </div>
+                                <i class="fa-solid fa-truck-medical text-3xl mb-3 relative z-10"></i>
+                                <h3 class="font-bold text-white text-lg relative z-10">24×7 Emergency</h3>
+                                <p class="text-blue-100 text-sm mt-1 relative z-10">Immediate response trauma care</p>
+                            </div>
+                            <img src="Images/2.png" alt="Operation Theatre" class="rounded-2xl shadow-premium object-cover h-80 w-full transform hover:scale-105 transition-transform duration-500">
+                        </div>
+                    </div>
+                    <!-- Established Badge -->
+                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-slate-900 p-4 rounded-full shadow-2xl border-4 border-slate-700 z-20 flex flex-col items-center justify-center w-32 h-32 text-center">
+                        <span class="text-brand-lightBlue font-black text-2xl">2017</span>
+                        <span class="text-xs font-bold text-slate-400 uppercase">Established</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fast Marquee Gallery Section -->
+    <section class="py-8 bg-slate-900 overflow-hidden border-y border-slate-800 shadow-inner">
+        <div class="marquee-wrapper">
+            <!-- Double content for infinite loop seamlessness -->
+            <div class="marquee-content items-center">
+                <img src="Images/2.png" class="h-48 w-72 object-cover rounded-xl shadow-lg border-2 border-slate-700" alt="Hospital Building">
+                <img src="Images/3.png" class="h-48 w-72 object-cover rounded-xl shadow-lg border-2 border-slate-700" alt="Operation Theatre">
+                <img src="Images/1.png" class="h-48 w-72 object-cover rounded-xl shadow-lg border-2 border-slate-700" alt="Reception">
+                <img src="Images/5.png" class="h-48 w-72 object-cover rounded-xl shadow-lg border-2 border-slate-700" alt="ICU">
+                <img src="Images/6.png" class="h-48 w-72 object-cover rounded-xl shadow-lg border-2 border-slate-700" alt="Labs">
+                <img src="Images/7.png" class="h-48 w-72 object-cover rounded-xl shadow-lg border-2 border-slate-700" alt="Labs">
+
+                <!-- Duplicate for seamless scroll -->
+                <img src="Images/2.png" class="h-48 w-72 object-cover rounded-xl shadow-lg border-2 border-slate-700" alt="Hospital Building">
+                <img src="Images/3.png" class="h-48 w-72 object-cover rounded-xl shadow-lg border-2 border-slate-700" alt="Operation Theatre">
+                <img src="Images/1.png" class="h-48 w-72 object-cover rounded-xl shadow-lg border-2 border-slate-700" alt="Reception">
+                <img src="Images/5.png" class="h-48 w-72 object-cover rounded-xl shadow-lg border-2 border-slate-700" alt="ICU">
+                <img src="Images/6.png" class="h-48 w-72 object-cover rounded-xl shadow-lg border-2 border-slate-700" alt="Labs">
+                <img src="Images/7.png" class="h-48 w-72 object-cover rounded-xl shadow-lg border-2 border-slate-700" alt="Labs">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <span class="text-brand-green font-bold tracking-wider uppercase text-sm mb-2 block">Who We Are</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">A Legacy of Care & Healing</h2>
+                <div class="w-20 h-1 bg-brand-blue mx-auto rounded-full mb-6"></div>
+                <p class="text-lg text-slate-600 leading-relaxed">
+                    Established in 2017, Prabhat Hospital is a trusted multi-speciality and trauma care center dedicated to delivering quality healthcare through experienced doctors, advanced diagnostics, and compassionate treatment. With modern facilities and round-the-clock emergency support, we strive to provide safe, accessible, and patient-focused healthcare services.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Mission -->
+                <div class="glass-card bg-white p-8 rounded-2xl shadow-premium reveal text-center group hover:-translate-y-2 transition-all">
+                    <div class="w-16 h-16 bg-blue-50 text-brand-blue rounded-full flex items-center justify-center text-2xl mx-auto mb-6 group-hover:bg-brand-blue group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Our Mission</h3>
+                    <p class="text-slate-600 text-sm">To provide affordable, accessible, and comprehensive healthcare services to all sections of society with utmost dedication and ethics.</p>
+                </div>
+                <!-- Vision -->
+                <div class="glass-card bg-white p-8 rounded-2xl shadow-premium reveal delay-100 text-center group hover:-translate-y-2 transition-all">
+                    <div class="w-16 h-16 bg-green-50 text-brand-green rounded-full flex items-center justify-center text-2xl mx-auto mb-6 group-hover:bg-brand-green group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-eye"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Our Vision</h3>
+                    <p class="text-slate-600 text-sm">To be the most trusted healthcare provider in Varanasi, renowned for clinical excellence, advanced technology, and compassionate patient care.</p>
+                </div>
+                <!-- Values -->
+                <div class="glass-card bg-white p-8 rounded-2xl shadow-premium reveal delay-200 text-center group hover:-translate-y-2 transition-all">
+                    <div class="w-16 h-16 bg-amber-50 text-amber-500 rounded-full flex items-center justify-center text-2xl mx-auto mb-6 group-hover:bg-amber-500 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-gem"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Core Values</h3>
+                    <p class="text-slate-600 text-sm">Integrity, Transparency, Patient-Centricity, Excellence in Care, and Continuous Innovation in Medical Practices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-20 bg-white relative border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Why Choose Prabhat Hospital?</h2>
+                <div class="w-20 h-1 bg-brand-green mx-auto rounded-full mb-6"></div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Features Map -->
+                <div class="p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-premium hover:border-brand-blue/30 transition-all text-center reveal bg-slate-50 group">
+                    <i class="fa-solid fa-truck-medical text-3xl text-brand-blue mb-4 group-hover:scale-110 transition-transform"></i>
+                    <h4 class="font-bold text-slate-800 text-sm md:text-base">24×7 Emergency Care</h4>
+                </div>
+                <div class="p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-premium hover:border-brand-blue/30 transition-all text-center reveal delay-75 bg-slate-50 group">
+                    <i class="fa-solid fa-microscope text-3xl text-brand-blue mb-4 group-hover:scale-110 transition-transform"></i>
+                    <h4 class="font-bold text-slate-800 text-sm md:text-base">Advanced Diagnostics</h4>
+                </div>
+                <div class="p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-premium hover:border-brand-green/30 transition-all text-center reveal delay-150 bg-slate-50 group">
+                    <i class="fa-solid fa-bed-pulse text-3xl text-brand-green mb-4 group-hover:scale-110 transition-transform pulse-ring rounded-full"></i>
+                    <h4 class="font-bold text-slate-800 text-sm md:text-base">ICU / NICU / PICU</h4>
+                </div>
+                <div class="p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-premium hover:border-brand-blue/30 transition-all text-center reveal delay-200 bg-slate-50 group">
+                    <i class="fa-solid fa-user-doctor text-3xl text-brand-blue mb-4 group-hover:scale-110 transition-transform"></i>
+                    <h4 class="font-bold text-slate-800 text-sm md:text-base">Expert Medical Specialists</h4>
+                </div>
+                <div class="p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-premium hover:border-brand-blue/30 transition-all text-center reveal bg-slate-50 group">
+                    <i class="fa-solid fa-file-invoice-dollar text-3xl text-brand-blue mb-4 group-hover:scale-110 transition-transform"></i>
+                    <h4 class="font-bold text-slate-800 text-sm md:text-base">Cashless Insurance</h4>
+                </div>
+                <div class="p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-premium hover:border-brand-blue/30 transition-all text-center reveal delay-75 bg-slate-50 group">
+                    <i class="fa-solid fa-kit-medical text-3xl text-brand-blue mb-4 group-hover:scale-110 transition-transform"></i>
+                    <h4 class="font-bold text-slate-800 text-sm md:text-base">Trauma & Surgical Care</h4>
+                </div>
+                <div class="p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-premium hover:border-brand-blue/30 transition-all text-center reveal delay-150 bg-slate-50 group">
+                    <i class="fa-solid fa-laptop-medical text-3xl text-brand-blue mb-4 group-hover:scale-110 transition-transform"></i>
+                    <h4 class="font-bold text-slate-800 text-sm md:text-base">Modern Medical Equipment</h4>
+                </div>
+                <div class="p-6 rounded-2xl border border-brand-green/20 bg-green-50 shadow-sm hover:shadow-premium hover:border-brand-green transition-all text-center reveal delay-200 group">
+                    <i class="fa-solid fa-id-card text-3xl text-brand-green mb-4 group-hover:scale-110 transition-transform"></i>
+                    <h4 class="font-bold text-brand-green text-sm md:text-base">Ayushman Bharat Support</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Medical Services Section -->
+    <section id="services" class="py-20 bg-brand-bg relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <span class="text-brand-blue font-bold tracking-wider uppercase text-sm mb-2 block">What We Do</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Comprehensive Medical Services</h2>
+                <div class="w-20 h-1 bg-brand-blue mx-auto rounded-full mb-6"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden reveal hover:shadow-premium transition-shadow border-t-4 border-red-500">
+                    <div class="p-6">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 bg-red-50 rounded-lg flex items-center justify-center text-red-500 text-xl"><i class="fa-solid fa-truck-medical"></i></div>
+                            <h3 class="font-bold text-xl text-slate-900">Emergency & Trauma</h3>
+                        </div>
+                        <ul class="space-y-2 text-slate-600 text-sm">
+                            <li><i class="fa-solid fa-check text-brand-green mr-2"></i> Emergency Services (24x7)</li>
+                            <li><i class="fa-solid fa-check text-brand-green mr-2"></i> Cardiac Emergency</li>
+                            <li><i class="fa-solid fa-check text-brand-green mr-2"></i> Trauma Surgical Services</li>
+                            <li><i class="fa-solid fa-check text-brand-green mr-2"></i> Ambulance Service</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden reveal delay-100 hover:shadow-premium transition-shadow border-t-4 border-brand-blue">
+                    <div class="p-6">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center text-brand-blue text-xl"><i class="fa-solid fa-scalpel-line-dashed"></i></div>
+                            <h3 class="font-bold text-xl text-slate-900">Surgery & specialized care</h3>
+                        </div>
+                        <ul class="space-y-2 text-slate-600 text-sm">
+                            <li><i class="fa-solid fa-check text-brand-green mr-2"></i> General & Laparoscopic Surgery</li>
+                            <li><i class="fa-solid fa-check text-brand-green mr-2"></i> Minimally Invasive Urology</li>
+                            <li><i class="fa-solid fa-check text-brand-green mr-2"></i> Ovarian Surgery</li>
+                            <li><i class="fa-solid fa-check text-brand-green mr-2"></i> Bed Sore Management</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden reveal delay-200 hover:shadow-premium transition-shadow border-t-4 border-pink-500">
+                    <div class="p-6">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 bg-pink-50 rounded-lg flex items-center justify-center text-pink-500 text-xl"><i class="fa-solid fa-person-pregnant"></i></div>
+                            <h3 class="font-bold text-xl text-slate-900">Women & Child Care</h3>
+                        </div>
+                        <ul class="space-y-2 text-slate-600 text-sm">
+                            <li><i class="fa-solid fa-check text-brand-green mr-2"></i> Women's Care</li>
+                            <li><i class="fa-solid fa-check text-brand-green mr-2"></i> Antenatal Care</li>
+                            <li><i class="fa-solid fa-check text-brand-green mr-2"></i> Adolescent Care</li>
+                            <li><i class="fa-solid fa-check text-brand-green mr-2"></i> Pediatrics</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Card 4 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden reveal hover:shadow-premium transition-shadow border-t-4 border-amber-500">
+                    <div class="p-6">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 bg-amber-50 rounded-lg flex items-center justify-center text-amber-500 text-xl"><i class="fa-solid fa-eye"></i></div>
+                            <h3 class="font-bold text-xl text-slate-900">ENT & Eye Care</h3>
+                        </div>
+                        <ul class="space-y-2 text-slate-600 text-sm">
+                            <li><i class="fa-solid fa-check text-brand-green mr-2"></i> Retinal Care</li>
+                            <li><i class="fa-solid fa-check text-brand-green mr-2"></i> Contact Lens Services</li>
+                            <li><i class="fa-solid fa-check text-brand-green mr-2"></i> Audiometry Testing</li>
+                            <li><i class="fa-solid fa-check text-brand-green mr-2"></i> Ear, Nose & Throat treatments</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden reveal delay-100 hover:shadow-premium transition-shadow border-t-4 border-purple-500">
+                    <div class="p-6">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 bg-purple-50 rounded-lg flex items-center justify-center text-purple-500 text-xl"><i class="fa-solid fa-microscope"></i></div>
+                            <h3 class="font-bold text-xl text-slate-900">Diagnostics</h3>
+                        </div>
+                        <ul class="space-y-2 text-slate-600 text-sm">
+                            <li><i class="fa-solid fa-check text-brand-green mr-2"></i> Digital X-Ray & Ultrasound</li>
+                            <li><i class="fa-solid fa-check text-brand-green mr-2"></i> ECG, EEG, EMG</li>
+                            <li><i class="fa-solid fa-check text-brand-green mr-2"></i> Pathology Lab</li>
+                            <li><i class="fa-solid fa-check text-brand-green mr-2"></i> Home Sample Collection</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 6: Critical Care Feature -->
+                <div class="bg-gradient-to-br from-brand-blue to-blue-800 rounded-2xl shadow-lg overflow-hidden reveal delay-200 hover:shadow-premium transition-shadow text-white">
+                    <div class="p-6 h-full flex flex-col justify-center">
+                        <h3 class="font-bold text-2xl mb-4 text-white">Critical Care Unit</h3>
+                        <p class="text-blue-100 text-sm mb-6">Equipped with highly advanced life support systems and experienced intensivists to handle all critical emergencies.</p>
+                        <div class="grid grid-cols-2 gap-3 mb-4">
+                            <div class="bg-white/10 rounded-lg p-2 text-center text-sm font-semibold border border-white/20"><i class="fa-solid fa-heart-pulse text-red-400 mr-1 pulse-ring rounded-full"></i> ICU</div>
+                            <div class="bg-white/10 rounded-lg p-2 text-center text-sm font-semibold border border-white/20"><i class="fa-solid fa-baby text-pink-300 mr-1"></i> NICU</div>
+                            <div class="bg-white/10 rounded-lg p-2 text-center text-sm font-semibold border border-white/20"><i class="fa-solid fa-child text-brand-lightBlue mr-1"></i> PICU</div>
+                            <div class="bg-white/10 rounded-lg p-2 text-center text-sm font-semibold border border-white/20"><i class="fa-solid fa-lungs text-green-300 mr-1"></i> Ventilator</div>
+                        </div>
+                        <div class="bg-brand-green/30 rounded-lg p-2 text-center text-sm font-semibold border border-brand-green/50">
+                            <i class="fa-solid fa-wind mr-1"></i> 24 Hr Centralized Oxygen
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Doctors Section -->
+    <section id="doctors" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <span class="text-brand-green font-bold tracking-wider uppercase text-sm mb-2 block">Our Specialists</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Meet Our Expert Doctors</h2>
+                <div class="w-20 h-1 bg-brand-blue mx-auto rounded-full mb-6"></div>
+                <p class="text-slate-600">Our team comprises highly qualified and experienced medical professionals dedicated to providing the best care.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Ortho -->
+                <div class="border border-slate-100 rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow reveal relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-16 h-16 bg-blue-50 rounded-bl-full -z-10 group-hover:bg-blue-100 transition-colors"></div>
+                    <span class="text-xs font-bold text-brand-blue uppercase tracking-wider mb-1 block">Bone & Joint / Orthopaedics</span>
+                    <h3 class="font-bold text-lg text-slate-900">Dr. P. P. Singh</h3>
+                    <p class="text-sm text-slate-500">M.B.B.S., M.S., M.Ch</p>
+                </div>
+                <div class="border border-slate-100 rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow reveal relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-16 h-16 bg-blue-50 rounded-bl-full -z-10 group-hover:bg-blue-100 transition-colors"></div>
+                    <span class="text-xs font-bold text-brand-blue uppercase tracking-wider mb-1 block">Bone & Joint / Orthopaedics</span>
+                    <h3 class="font-bold text-lg text-slate-900">Dr. Omkar Pandey</h3>
+                    <p class="text-sm text-slate-500">M.B.B.S., M.S. (Ortho)</p>
+                </div>
+                
+                <!-- Pediatrics -->
+                <div class="border border-slate-100 rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow reveal relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-16 h-16 bg-pink-50 rounded-bl-full -z-10 group-hover:bg-pink-100 transition-colors"></div>
+                    <span class="text-xs font-bold text-pink-600 uppercase tracking-wider mb-1 block">Pediatrics / Child Care</span>
+                    <h3 class="font-bold text-lg text-slate-900">Dr. R. K. Srivastava</h3>
+                    <p class="text-sm text-slate-500">M.B.B.S., M.D.</p>
+                </div>
+
+                <!-- ENT -->
+                <div class="border border-slate-100 rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow reveal relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-16 h-16 bg-amber-50 rounded-bl-full -z-10 group-hover:bg-amber-100 transition-colors"></div>
+                    <span class="text-xs font-bold text-amber-600 uppercase tracking-wider mb-1 block">ENT (Ear, Nose & Throat)</span>
+                    <h3 class="font-bold text-lg text-slate-900">Dr. Vijay Rai</h3>
+                    <p class="text-sm text-slate-500">M.B.B.S.</p>
+                </div>
+                <div class="border border-slate-100 rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow reveal relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-16 h-16 bg-amber-50 rounded-bl-full -z-10 group-hover:bg-amber-100 transition-colors"></div>
+                    <span class="text-xs font-bold text-amber-600 uppercase tracking-wider mb-1 block">ENT (Ear, Nose & Throat)</span>
+                    <h3 class="font-bold text-lg text-slate-900">Dr. Vikram Gupta</h3>
+                    <p class="text-sm text-slate-500">M.B.B.S., D.M.B.</p>
+                </div>
+
+                <!-- Gen Med -->
+                <div class="border border-slate-100 rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow reveal relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-16 h-16 bg-green-50 rounded-bl-full -z-10 group-hover:bg-green-100 transition-colors"></div>
+                    <span class="text-xs font-bold text-brand-green uppercase tracking-wider mb-1 block">General Medicine</span>
+                    <h3 class="font-bold text-lg text-slate-900">Dr. Tribhuvan Gupta</h3>
+                    <p class="text-sm text-slate-500">M.B.B.S., M.D. (Medicine)</p>
+                </div>
+                <div class="border border-slate-100 rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow reveal relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-16 h-16 bg-green-50 rounded-bl-full -z-10 group-hover:bg-green-100 transition-colors"></div>
+                    <span class="text-xs font-bold text-brand-green uppercase tracking-wider mb-1 block">General Medicine</span>
+                    <h3 class="font-bold text-lg text-slate-900">Dr. Sanjay Singh</h3>
+                    <p class="text-sm text-slate-500">M.B.B.S., M.S. (Ortho)</p>
+                </div>
+
+                <!-- Cardio -->
+                <div class="border border-slate-100 rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow reveal relative overflow-hidden group border-l-4 border-l-red-500">
+                    <div class="absolute top-0 right-0 w-16 h-16 bg-red-50 rounded-bl-full -z-10 group-hover:bg-red-100 transition-colors"></div>
+                    <span class="text-xs font-bold text-red-600 uppercase tracking-wider mb-1 block">Cardiology / Heart Specialist</span>
+                    <h3 class="font-bold text-lg text-slate-900">Dr. Rajesh Kumar Gupta</h3>
+                    <p class="text-sm text-slate-500">M.B.B.S., M.D., D.M.</p>
+                </div>
+
+                <!-- Chest & Respiratory -->
+                <div class="border border-slate-100 rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow reveal relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-16 h-16 bg-teal-50 rounded-bl-full -z-10 group-hover:bg-teal-100 transition-colors"></div>
+                    <span class="text-xs font-bold text-teal-600 uppercase tracking-wider mb-1 block">Chest & Respiratory</span>
+                    <h3 class="font-bold text-lg text-slate-900">Dr. V. S. Singh</h3>
+                    <p class="text-sm text-slate-500">M.B.B.S., M.D. Chest</p>
+                </div>
+
+                <!-- Neurology -->
+                <div class="border border-slate-100 rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow reveal relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-16 h-16 bg-purple-50 rounded-bl-full -z-10 group-hover:bg-purple-100 transition-colors"></div>
+                    <span class="text-xs font-bold text-purple-600 uppercase tracking-wider mb-1 block">Neurology</span>
+                    <h3 class="font-bold text-lg text-slate-900">Dr. R. R. Rai</h3>
+                    <p class="text-sm text-slate-500">M.B.B.S., M.D.</p>
+                </div>
+
+                <!-- Surgery -->
+                <div class="border border-slate-100 rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow reveal relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-16 h-16 bg-indigo-50 rounded-bl-full -z-10 group-hover:bg-indigo-100 transition-colors"></div>
+                    <span class="text-xs font-bold text-indigo-600 uppercase tracking-wider mb-1 block">Surgery</span>
+                    <h3 class="font-bold text-lg text-slate-900">Dr. Manoj Kumar</h3>
+                    <p class="text-sm text-slate-500">M.B.B.S., M.S., M.Ch</p>
+                </div>
+
+                <!-- Obs & Gynae / Dental -->
+                <div class="border border-slate-100 rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow reveal relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-16 h-16 bg-rose-50 rounded-bl-full -z-10 group-hover:bg-rose-100 transition-colors"></div>
+                    <span class="text-xs font-bold text-rose-600 uppercase tracking-wider mb-1 block">Obstetrics & Gynecology</span>
+                    <h3 class="font-bold text-lg text-slate-900">Dr. Vikram Gupta</h3>
+                    <p class="text-sm text-slate-500">Specialist</p>
+                </div>
+                <div class="border border-slate-100 rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow reveal relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-16 h-16 bg-sky-50 rounded-bl-full -z-10 group-hover:bg-sky-100 transition-colors"></div>
+                    <span class="text-xs font-bold text-sky-600 uppercase tracking-wider mb-1 block">Dental Surgery</span>
+                    <h3 class="font-bold text-lg text-slate-900">Dr. Vivek Agrawal</h3>
+                    <p class="text-sm text-slate-500">M.S., M.Ch</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Insurance & Govt Schemes Section -->
+    <section id="insurance" class="py-20 bg-slate-50 border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Cashless Insurance & Govt Schemes</h2>
+                <p class="text-slate-600">We provide hassle-free cashless treatment facilities through our empaneled TPA and insurance partners.</p>
+                
+                <!-- Ayushman Bharat Highlight -->
+                <div class="mt-8 inline-flex items-center gap-4 bg-white border-2 border-brand-green/50 px-6 py-4 rounded-xl shadow-md">
+                    <i class="fa-solid fa-id-card text-4xl text-brand-green"></i>
+                    <div class="text-left">
+                        <h4 class="font-bold text-lg text-slate-900">Ayushman Bharat Accepted</h4>
+                        <p class="text-sm text-slate-500">Free treatment up to ₹5 Lakhs for eligible cardholders.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Insurance Grid (Placeholders matching requested names) -->
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 reveal">
+                <div class="bg-white h-20 rounded-lg shadow-sm border border-slate-100 flex items-center justify-center font-bold text-slate-400 p-4 text-center text-sm grayscale hover:grayscale-0 transition-all cursor-default">FHPL</div>
+                <div class="bg-white h-20 rounded-lg shadow-sm border border-slate-100 flex items-center justify-center font-bold text-slate-400 p-4 text-center text-sm grayscale hover:grayscale-0 transition-all cursor-default">HDFC ERGO</div>
+                <div class="bg-white h-20 rounded-lg shadow-sm border border-slate-100 flex items-center justify-center font-bold text-slate-400 p-4 text-center text-sm grayscale hover:grayscale-0 transition-all cursor-default">Star Health</div>
+                <div class="bg-white h-20 rounded-lg shadow-sm border border-slate-100 flex items-center justify-center font-bold text-slate-400 p-4 text-center text-sm grayscale hover:grayscale-0 transition-all cursor-default">Care Health</div>
+                <div class="bg-white h-20 rounded-lg shadow-sm border border-slate-100 flex items-center justify-center font-bold text-slate-400 p-4 text-center text-sm grayscale hover:grayscale-0 transition-all cursor-default">SBI General</div>
+                <div class="bg-white h-20 rounded-lg shadow-sm border border-slate-100 flex items-center justify-center font-bold text-slate-400 p-4 text-center text-sm grayscale hover:grayscale-0 transition-all cursor-default">Medi Assist</div>
+                <div class="bg-white h-20 rounded-lg shadow-sm border border-slate-100 flex items-center justify-center font-bold text-slate-400 p-4 text-center text-sm grayscale hover:grayscale-0 transition-all cursor-default">Aditya Birla Health</div>
+                <div class="bg-white h-20 rounded-lg shadow-sm border border-slate-100 flex items-center justify-center font-bold text-slate-400 p-4 text-center text-sm grayscale hover:grayscale-0 transition-all cursor-default">Go Digit</div>
+                <div class="bg-white h-20 rounded-lg shadow-sm border border-slate-100 flex items-center justify-center font-bold text-slate-400 p-4 text-center text-sm grayscale hover:grayscale-0 transition-all cursor-default">Royal Sundaram</div>
+                <div class="bg-brand-green/10 border-brand-green/30 h-20 rounded-lg shadow-sm border flex items-center justify-center font-bold text-brand-green p-4 text-center text-sm cursor-default">Ayushman Bharat</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <span class="text-brand-blue font-bold tracking-wider uppercase text-sm mb-2 block">Patient Reviews</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">What Our Patients Say</h2>
+                <div class="w-20 h-1 bg-brand-blue mx-auto rounded-full mb-6"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
+                <!-- Review 1 -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 relative">
+                    <i class="fa-solid fa-quote-left text-3xl text-slate-200 absolute top-4 right-4"></i>
+                    <div class="flex text-amber-400 mb-3 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-600 text-sm italic mb-6">"Excellent doctors and caring staff. Highly recommended for any emergency or regular treatment."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-brand-blue text-white flex items-center justify-center font-bold">R</div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-sm">Ramnaresh Sharma</h4>
+                            <span class="text-xs text-slate-500">Patient</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Review 2 -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 relative">
+                    <i class="fa-solid fa-quote-left text-3xl text-slate-200 absolute top-4 right-4"></i>
+                    <div class="flex text-amber-400 mb-3 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-600 text-sm italic mb-6">"Professional healthcare with excellent patient support. The facilities are very clean and modern."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-brand-green text-white flex items-center justify-center font-bold">S</div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-sm">Sunita Vishwakarma</h4>
+                            <span class="text-xs text-slate-500">Patient</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Review 3 -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 relative">
+                    <i class="fa-solid fa-quote-left text-3xl text-slate-200 absolute top-4 right-4"></i>
+                    <div class="flex text-amber-400 mb-3 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-600 text-sm italic mb-6">"Very good facilities and treatment experience. The doctors listened carefully to all my problems."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-blue-500 text-white flex items-center justify-center font-bold">M</div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-sm">Manoj Dwivedi</h4>
+                            <span class="text-xs text-slate-500">Patient</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Review 4 -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 relative">
+                    <i class="fa-solid fa-quote-left text-3xl text-slate-200 absolute top-4 right-4"></i>
+                    <div class="flex text-amber-400 mb-3 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <p class="text-slate-600 text-sm italic mb-6">"Good treatment and supportive environment. Satisfied with the overall experience."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-emerald-500 text-white flex items-center justify-center font-bold">A</div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-sm">Ashif Jamal</h4>
+                            <span class="text-xs text-slate-500">Patient</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ & Contact Section -->
+    <section id="contact" class="py-20 bg-brand-bg relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12">
+                
+                <!-- FAQ Area -->
+                <div class="reveal-left">
+                    <span class="text-brand-blue font-bold tracking-wider uppercase text-sm mb-2 block">Information</span>
+                    <h2 class="text-3xl font-bold text-slate-900 mb-6">Frequently Asked Questions</h2>
+                    
+                    <div class="space-y-4">
+                        <!-- FAQ Item 1 -->
+                        <div class="border border-slate-200 rounded-xl bg-white overflow-hidden shadow-sm">
+                            <button class="faq-btn w-full px-6 py-4 text-left flex justify-between items-center font-semibold text-slate-800 hover:text-brand-blue transition-colors focus:outline-none">
+                                Does the hospital provide emergency service?
+                                <i class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+                            </button>
+                            <div class="faq-content hidden px-6 pb-4 text-slate-600 text-sm">
+                                Yes, emergency care is available 24×7 with a fully equipped trauma center and ICU support.
+                            </div>
+                        </div>
+                        <!-- FAQ Item 2 -->
+                        <div class="border border-slate-200 rounded-xl bg-white overflow-hidden shadow-sm">
+                            <button class="faq-btn w-full px-6 py-4 text-left flex justify-between items-center font-semibold text-slate-800 hover:text-brand-blue transition-colors focus:outline-none">
+                                Is cashless insurance available?
+                                <i class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+                            </button>
+                            <div class="faq-content hidden px-6 pb-4 text-slate-600 text-sm">
+                                Yes, multiple insurance providers and TPAs are supported for cashless treatment.
+                            </div>
+                        </div>
+                        <!-- FAQ Item 3 -->
+                        <div class="border border-slate-200 rounded-xl bg-white overflow-hidden shadow-sm">
+                            <button class="faq-btn w-full px-6 py-4 text-left flex justify-between items-center font-semibold text-slate-800 hover:text-brand-blue transition-colors focus:outline-none">
+                                Is Ayushman Bharat accepted?
+                                <i class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+                            </button>
+                            <div class="faq-content hidden px-6 pb-4 text-slate-600 text-sm">
+                                Yes, we accept Ayushman Bharat cards for eligible patients.
+                            </div>
+                        </div>
+                        <!-- FAQ Item 4 -->
+                        <div class="border border-slate-200 rounded-xl bg-white overflow-hidden shadow-sm">
+                            <button class="faq-btn w-full px-6 py-4 text-left flex justify-between items-center font-semibold text-slate-800 hover:text-brand-blue transition-colors focus:outline-none">
+                                Do you provide ambulance services?
+                                <i class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+                            </button>
+                            <div class="faq-content hidden px-6 pb-4 text-slate-600 text-sm">
+                                Yes, fully equipped ambulance services are available round the clock.
+                            </div>
+                        </div>
+                        <!-- FAQ Item 5 -->
+                        <div class="border border-slate-200 rounded-xl bg-white overflow-hidden shadow-sm">
+                            <button class="faq-btn w-full px-6 py-4 text-left flex justify-between items-center font-semibold text-slate-800 hover:text-brand-blue transition-colors focus:outline-none">
+                                Can appointments be booked online?
+                                <i class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+                            </button>
+                            <div class="faq-content hidden px-6 pb-4 text-slate-600 text-sm">
+                                Yes, you can use the appointment form on this website or contact our desk directly.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Direct Contact Details -->
+                    <div class="mt-8 bg-white p-6 rounded-xl shadow-md border border-slate-100 flex flex-col gap-4">
+                        <div class="flex items-start gap-4">
+                            <i class="fa-solid fa-location-dot mt-1 text-brand-blue text-xl w-6"></i>
+                            <div>
+                                <h4 class="font-bold text-slate-900">Hospital Address</h4>
+                                <p class="text-sm text-slate-600">Kerakatpur, near 38th Battalion PAC Gate, Bhullanpur, Varanasi, Uttar Pradesh</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <i class="fa-solid fa-phone mt-1 text-brand-green text-xl w-6"></i>
+                            <div>
+                                <h4 class="font-bold text-slate-900">Contact Numbers</h4>
+                                <p class="text-sm text-slate-600">7275558751, 8601802832</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <i class="fa-solid fa-envelope mt-1 text-brand-blue text-xl w-6"></i>
+                            <div>
+                                <h4 class="font-bold text-slate-900">Email Address</h4>
+                                <p class="text-sm text-slate-600">prabhathospital976@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Appointment Form -->
+                <div id="appointment" class="reveal-right">
+                    <div class="bg-white p-8 rounded-2xl shadow-premium border border-slate-100">
+                        <h3 class="text-2xl font-bold text-slate-900 mb-2">Book an Appointment</h3>
+                        <p class="text-sm text-slate-500 mb-6">Fill out the form below and our staff will contact you shortly.</p>
+                        
+                        <form id="appointmentForm" class="space-y-4" action="WEBHOOK_URL_PLACEHOLDER" method="POST">
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-1">Full Name *</label>
+                                <input type="text" id="fullName" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition-all" placeholder="John Doe">
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-slate-700 mb-1">Phone Number *</label>
+                                    <input type="tel" id="phone" required pattern="[0-9]{10}" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition-all" placeholder="10-digit number">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-slate-700 mb-1">Preferred Date</label>
+                                    <input type="date" id="date" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition-all">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-1">Email Address</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition-all" placeholder="example@mail.com">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-1">Department / Appointment Type</label>
+                                <select id="dept" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition-all bg-white">
+                                    <option value="">Select Department</option>
+                                    <option value="Orthopaedics">Orthopaedics</option>
+                                    <option value="Pediatrics">Pediatrics</option>
+                                    <option value="ENT">ENT</option>
+                                    <option value="Cardiology">Cardiology</option>
+                                    <option value="General Medicine">General Medicine</option>
+                                    <option value="Surgery">Surgery</option>
+                                    <option value="Other">Other / Not Sure</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-1">Message / Symptoms</label>
+                                <textarea id="message" rows="3" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition-all" placeholder="Briefly describe your concern..."></textarea>
+                            </div>
+                            
+                            <!-- Form State UI -->
+                            <div id="formStatus" class="hidden text-sm font-medium p-3 rounded-lg text-center"></div>
+
+                            <button type="submit" id="submitBtn" class="w-full bg-brand-blue hover:bg-blue-800 text-white font-bold py-3 px-4 rounded-lg transition-colors flex justify-center items-center gap-2">
+                                <span>Book Consultation</span>
+                                <i class="fa-solid fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Google Maps Section -->
+    <section class="w-full h-96 relative">
+        <iframe src="https://maps.google.com/maps?q=Prabhat%20Hospital,%20Kerakatpur,%20Bhullanpur,%20Varanasi&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+            class="absolute top-0 left-0 w-full h-full border-0 grayscale hover:grayscale-0 transition-all duration-700" 
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        <!-- Overlay Button -->
+        <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2">
+            <a href="https://maps.google.com/?q=Prabhat+Hospital,Kerakatpur,near+38th+Battalion+PAC+Gate,Bhullanpur,Varanasi" target="_blank" class="bg-white text-slate-900 px-6 py-3 rounded-full font-bold shadow-lg flex items-center gap-2 hover:bg-brand-blue hover:text-white transition-colors border border-slate-200">
+                <i class="fa-solid fa-map-location-dot text-brand-blue group-hover:text-white"></i> Get Directions
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-300 pt-16 pb-8 border-t-4 border-brand-green">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <!-- Branding -->
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-10 h-10 bg-brand-blue text-white rounded-lg flex items-center justify-center font-bold">PH</div>
+                        <h2 class="text-xl font-bold text-white">Prabhat Hospital</h2>
+                    </div>
+                    <p class="text-sm text-slate-400 mb-4">Multi Speciality & Trauma Centre. Providing advanced healthcare with compassion and excellence in Varanasi.</p>
+                    <div class="flex gap-3">
+                        <a href="#" class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center hover:bg-brand-blue hover:text-white transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center hover:bg-brand-blue hover:text-white transition-colors"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center hover:bg-brand-blue hover:text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Quick Links</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#home" class="hover:text-brand-green transition-colors"><i class="fa-solid fa-angle-right mr-1 text-xs"></i> Home</a></li>
+                        <li><a href="#about" class="hover:text-brand-green transition-colors"><i class="fa-solid fa-angle-right mr-1 text-xs"></i> About Us</a></li>
+                        <li><a href="#doctors" class="hover:text-brand-green transition-colors"><i class="fa-solid fa-angle-right mr-1 text-xs"></i> Our Doctors</a></li>
+                        <li><a href="#insurance" class="hover:text-brand-green transition-colors"><i class="fa-solid fa-angle-right mr-1 text-xs"></i> Cashless Insurance</a></li>
+                        <li><a href="#contact" class="hover:text-brand-green transition-colors"><i class="fa-solid fa-angle-right mr-1 text-xs"></i> Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h3 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Our Services</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#services" class="hover:text-brand-green transition-colors"><i class="fa-solid fa-angle-right mr-1 text-xs"></i> 24x7 Emergency</a></li>
+                        <li><a href="#services" class="hover:text-brand-green transition-colors"><i class="fa-solid fa-angle-right mr-1 text-xs"></i> Trauma Surgery</a></li>
+                        <li><a href="#services" class="hover:text-brand-green transition-colors"><i class="fa-solid fa-angle-right mr-1 text-xs"></i> ICU / NICU / PICU</a></li>
+                        <li><a href="#services" class="hover:text-brand-green transition-colors"><i class="fa-solid fa-angle-right mr-1 text-xs"></i> Orthopaedics</a></li>
+                        <li><a href="#services" class="hover:text-brand-green transition-colors"><i class="fa-solid fa-angle-right mr-1 text-xs"></i> Diagnostics & Lab</a></li>
+                    </ul>
+                </div>
+
+                <!-- Emergency Contact -->
+                <div>
+                    <h3 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Emergency Contact</h3>
+                    <div class="bg-slate-800 rounded-lg p-4 border border-slate-700">
+                        <div class="flex items-center gap-3 mb-2">
+                            <div class="w-8 h-8 rounded-full bg-red-500/20 text-red-500 flex items-center justify-center"><i class="fa-solid fa-phone-volume"></i></div>
+                            <div>
+                                <span class="block text-xs text-slate-400">Call Us Anytime</span>
+                                <a href="tel:7275558751" class="text-white font-bold block">7275558751</a>
+                            </div>
+                        </div>
+                        <div class="text-sm mt-3 pt-3 border-t border-slate-700">
+                            <p><strong>Reg No:</strong> AL-2344</p>
+                            <p><strong>Hospital ID:</strong> HOSP9P124820</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+                <p>&copy; 2026 Prabhat Hospital. All rights reserved.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:text-white">Privacy Policy</a>
+                    <a href="#" class="hover:text-white">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/917275558751" target="_blank" class="fixed bottom-6 right-6 w-14 h-14 bg-green-500 text-white rounded-full flex items-center justify-center text-3xl shadow-lg hover:scale-110 transition-transform z-40 pulse-ring">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Back to Top -->
+    <button id="backToTop" class="fixed bottom-24 right-6 w-10 h-10 bg-slate-800 text-white rounded-full flex items-center justify-center shadow-lg opacity-0 pointer-events-none transition-all duration-300 z-40 hover:bg-brand-blue">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- AI Chatbot (Left Corner) -->
+    <div class="fixed bottom-6 left-6 z-40">
+        <!-- Chatbot Toggle Button -->
+        <button id="chatToggleBtn" class="w-14 h-14 bg-brand-blue text-white rounded-full flex items-center justify-center text-2xl shadow-lg hover:scale-110 transition-transform shadow-brand-blue/40">
+            <i class="fa-solid fa-robot"></i>
+        </button>
+
+        <!-- Chatbot Window -->
+        <div id="chatbot-window" class="absolute bottom-16 left-0 w-80 bg-white rounded-2xl shadow-2xl border border-slate-200 flex flex-col overflow-hidden h-96">
+            <!-- Header -->
+            <div class="bg-gradient-to-r from-brand-blue to-blue-700 text-white p-4 flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-robot text-xl"></i>
+                    <div>
+                        <h4 class="font-bold text-sm">Prabhat Assistant</h4>
+                        <span class="text-[10px] text-green-300 flex items-center gap-1"><span class="w-2 h-2 bg-green-400 rounded-full inline-block"></span> Online</span>
+                    </div>
+                </div>
+                <button id="chatCloseBtn" class="text-white hover:text-slate-200"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            
+            <!-- Chat Area -->
+            <div id="chatMessages" class="flex-1 p-4 overflow-y-auto flex flex-col bg-slate-50 text-sm">
+                <div class="chat-bubble bot-msg shadow-sm">
+                    Hello! 👋 I'm the Prabhat Hospital AI Assistant. How can I help you today? You can ask about timings, doctors, emergency, or address.
+                </div>
+            </div>
+            
+            <!-- Input Area -->
+            <div class="p-3 bg-white border-t border-slate-100 flex gap-2">
+                <input type="text" id="chatInput" class="flex-1 px-3 py-2 border border-slate-300 rounded-full focus:outline-none focus:border-brand-blue text-sm" placeholder="Type your question...">
+                <button id="chatSendBtn" class="w-10 h-10 bg-brand-blue text-white rounded-full flex items-center justify-center hover:bg-blue-800 transition-colors">
+                    <i class="fa-solid fa-paper-plane text-xs"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- 1. Preloader ---
+            setTimeout(() => {
+                const preloader = document.getElementById('preloader');
+                preloader.style.opacity = '0';
+                setTimeout(() => preloader.style.display = 'none', 500);
+            }, 1000);
+
+            // --- 2. Medical Background Particles ---
+            const particleContainer = document.getElementById('particles-container');
+            const icons = ['fa-capsules', 'fa-syringe', 'fa-plus', 'fa-stethoscope', 'fa-heart-pulse'];
+            for(let i=0; i<15; i++) {
+                let el = document.createElement('i');
+                let iconClass = icons[Math.floor(Math.random() * icons.length)];
+                el.className = `fa-solid ${iconClass} particle`;
+                el.style.left = `${Math.random() * 100}vw`;
+                el.style.fontSize = `${Math.random() * 20 + 10}px`;
+                el.style.animationDuration = `${Math.random() * 15 + 10}s`;
+                el.style.animationDelay = `${Math.random() * 5}s`;
+                particleContainer.appendChild(el);
+            }
+
+            // --- 3. Scroll Progress & Sticky Nav ---
+            const progressBar = document.getElementById('scroll-progress');
+            const navbar = document.getElementById('navbar');
+            const backToTopBtn = document.getElementById('backToTop');
+
+            window.addEventListener('scroll', () => {
+                let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                let scrolled = (winScroll / height) * 100;
+                progressBar.style.width = scrolled + "%";
+
+                if (winScroll > 50) {
+                    navbar.classList.add('shadow-md', 'py-0');
+                    backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+                } else {
+                    navbar.classList.remove('shadow-md', 'py-0');
+                    backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+                }
+            });
+
+            backToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+            // --- 4. Mobile Menu & Smart Resize ---
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+            let isMobileMenuOpen = false;
+
+            function toggleMobileMenu() {
+                isMobileMenuOpen = !isMobileMenuOpen;
+                let icon = mobileMenuBtn.querySelector('i');
+                
+                if(isMobileMenuOpen){
+                    mobileMenu.classList.remove('max-h-0');
+                    mobileMenu.classList.add('max-h-[500px]'); // Slide down
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-xmark');
+                    icon.style.transform = "rotate(90deg)"; // Premium interaction
+                } else {
+                    mobileMenu.classList.remove('max-h-[500px]');
+                    mobileMenu.classList.add('max-h-0'); // Slide up
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                    icon.style.transform = "rotate(0deg)";
+                }
+            }
+
+            mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (isMobileMenuOpen) toggleMobileMenu();
+                });
+            });
+
+            // Hide mobile menu immediately on resize to desktop widths (768px+)
+            window.addEventListener('resize', () => {
+                if (window.innerWidth >= 768 && isMobileMenuOpen) { 
+                    toggleMobileMenu();
+                }
+            });
+
+            // --- 5. Scroll Reveals ---
+            const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+            const revealOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
+
+            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                });
+            }, revealOptions);
+
+            revealElements.forEach(el => revealOnScroll.observe(el));
+
+            // --- 6. FAQ Accordion ---
+            const faqBtns = document.querySelectorAll('.faq-btn');
+            faqBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const content = this.nextElementSibling;
+                    const icon = this.querySelector('i');
+                    
+                    document.querySelectorAll('.faq-content').forEach(c => {
+                        if (c !== content) {
+                            c.classList.add('hidden');
+                            c.previousElementSibling.querySelector('i').style.transform = 'rotate(0deg)';
+                        }
+                    });
+
+                    content.classList.toggle('hidden');
+                    if(content.classList.contains('hidden')){
+                        icon.style.transform = 'rotate(0deg)';
+                    } else {
+                        icon.style.transform = 'rotate(180deg)';
+                    }
+                });
+            });
+
+            // --- 7. Contact Form Handling ---
+            const form = document.getElementById('appointmentForm');
+            const formStatus = document.getElementById('formStatus');
+            const submitBtn = document.getElementById('submitBtn');
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault(); 
+                
+                const originalBtnText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Processing...';
+                submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalBtnText;
+                    submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
+                    
+                    formStatus.classList.remove('hidden', 'bg-red-100', 'text-red-700');
+                    formStatus.classList.add('bg-green-100', 'text-green-700');
+                    formStatus.innerHTML = '<i class="fa-solid fa-circle-check mr-2"></i> Thank you! Your appointment request has been received. Our team will contact you shortly.';
+                    
+                    form.reset();
+                    setTimeout(() => formStatus.classList.add('hidden'), 5000);
+                }, 1500);
+            });
+
+            // --- 8. Highly Intelligent Local AI Chatbot Logic ---
+            const chatToggleBtn = document.getElementById('chatToggleBtn');
+            const chatCloseBtn = document.getElementById('chatCloseBtn');
+            const chatbotWindow = document.getElementById('chatbot-window');
+            const chatInput = document.getElementById('chatInput');
+            const chatSendBtn = document.getElementById('chatSendBtn');
+            const chatMessages = document.getElementById('chatMessages');
+
+            chatToggleBtn.addEventListener('click', () => {
+                chatbotWindow.classList.toggle('open');
+                if(chatbotWindow.classList.contains('open')) chatInput.focus();
+            });
+
+            chatCloseBtn.addEventListener('click', () => chatbotWindow.classList.remove('open'));
+
+            function appendMessage(msg, sender, isHTML = false) {
+                const div = document.createElement('div');
+                div.className = `chat-bubble ${sender === 'user' ? 'user-msg' : 'bot-msg'} shadow-sm`;
+                if(isHTML) {
+                    div.innerHTML = msg;
+                } else {
+                    div.textContent = msg;
+                }
+                chatMessages.appendChild(div);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            function showTypingIndicator() {
+                const div = document.createElement('div');
+                div.id = 'typingIndicator';
+                div.className = 'typing-indicator shadow-sm';
+                div.innerHTML = '<div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>';
+                chatMessages.appendChild(div);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            function hideTypingIndicator() {
+                const indicator = document.getElementById('typingIndicator');
+                if (indicator) indicator.remove();
+            }
+
+            // --- 8. SUPER INTELLIGENT LOCAL AI ENGINE ---
+            
+            // Conversation Context Memory
+            let currentContext = null;
+
+            // Comprehensive Knowledge Base & Intent Mapping
+            const nlpDatabase = [
+                {
+                    intent: 'emergency',
+                    keywords: ['emergency', 'accident', 'trauma', 'urgent', 'heart attack', 'casualty', 'ambulance', 'critical', 'dying', 'blood', 'serious', 'severe'],
+                    response: "🚨 <b>MEDICAL EMERGENCY:</b> We provide 24×7 Emergency and Trauma care with advanced life support ambulances.<br><br><a href='tel:7275558751' class='inline-flex items-center gap-2 mt-2 bg-red-600 text-white px-4 py-2 rounded-lg font-bold text-sm hover:bg-red-700'><i class='fa-solid fa-phone-volume'></i> Call Emergency Now</a>"
+                },
+                {
+                    intent: 'appointment',
+                    keywords: ['appointment', 'book', 'schedule', 'meet', 'consultation', 'opd', 'checkup', 'visit', 'apointment', 'booking', 'show doctor'],
+                    response: "📅 <b>Book an Appointment:</b><br>You can book online or call our desk.<br><br><a href='#appointment' onclick='document.getElementById(\"chatbot-window\").classList.remove(\"open\")' class='inline-flex items-center gap-2 mt-2 bg-brand-blue text-white px-4 py-2 rounded-lg font-bold text-sm hover:bg-blue-800'><i class='fa-regular fa-calendar-check'></i> Book Online</a>"
+                },
+                {
+                    intent: 'location',
+                    keywords: ['location', 'address', 'where', 'reach', 'map', 'directions', 'situated', 'located', 'varanasi', 'place', 'city'],
+                    response: "📍 <b>Our Address:</b><br>Kerakatpur, near 38th Battalion PAC Gate, Bhullanpur, Varanasi, Uttar Pradesh.<br><br><a href='https://maps.google.com/?q=Prabhat+Hospital,Kerakatpur,Bhullanpur,Varanasi' target='_blank' class='inline-flex items-center gap-2 mt-2 bg-slate-100 text-brand-blue border border-brand-blue px-4 py-2 rounded-lg font-bold text-sm hover:bg-blue-50'><i class='fa-solid fa-map-location-dot'></i> Open in Google Maps</a>"
+                },
+                {
+                    intent: 'contact',
+                    keywords: ['contact', 'number', 'phone', 'call', 'email', 'whatsapp', 'mobile', 'telephone', 'reach out'],
+                    response: "📞 <b>Contact Support:</b><br>• Helpline: 7275558751, 8601802832<br>• WhatsApp: 7275558751<br>• Email: prabhathospital976@gmail.com"
+                },
+                {
+                    intent: 'insurance',
+                    keywords: ['insurance', 'cashless', 'ayushman', 'bharat', 'scheme', 'tpa', 'policy', 'claim', 'mediclaim', 'hdfc', 'star health', 'sbi'],
+                    response: "🛡️ <b>Insurance & Cashless:</b><br>Yes, we accept <b>Ayushman Bharat</b> cards for free treatment (up to ₹5 Lakhs). We also provide cashless facilities via major TPA partners like HDFC ERGO, Star Health, SBI General, and more."
+                },
+                {
+                    intent: 'timing',
+                    keywords: ['time', 'timing', 'hours', 'open', 'close', 'visiting', 'when', 'opd days', 'shift'],
+                    response: "⏰ <b>Hospital Timings:</b><br>• <b>Emergency & Pharmacy:</b> 24×7 Open<br>• <b>OPD Consultations:</b> Usually 10:00 AM to 4:00 PM (varies by doctor). Please call to confirm specific specialist availability."
+                },
+                {
+                    intent: 'cost',
+                    keywords: ['cost', 'price', 'fee', 'charge', 'bill', 'estimate', 'expensive', 'cheap', 'money', 'rupees'],
+                    response: "💰 <b>Pricing & Fees:</b><br>Consultation fees vary by specialist (typically ₹500 - ₹1000). For exact surgery estimates, room charges, or ICU costs, please contact our billing desk at <b>7275558751</b>."
+                },
+                {
+                    intent: 'facilities_rooms',
+                    keywords: ['icu', 'nicu', 'picu', 'bed', 'room', 'ward', 'admit', 'admission', 'oxygen', 'ventilator', 'stay', 'private', 'general'],
+                    response: "🏥 <b>Facilities & Admissions:</b><br>We have highly advanced critical care units (ICU, NICU, PICU) equipped with ventilators and 24-hr centralized oxygen. We offer both General Wards and Private Rooms based on patient needs."
+                },
+                {
+                    intent: 'diagnostics',
+                    keywords: ['test', 'blood test', 'xray', 'x-ray', 'ultrasound', 'pathology', 'lab', 'report', 'ecg', 'eeg', 'emg', 'scan'],
+                    response: "🔬 <b>Diagnostics & Labs:</b><br>We have an in-house advanced Pathology Lab, Digital X-Ray, Ultrasound, ECG, EEG, and EMG facilities. Home sample collection is also available."
+                },
+                {
+                    intent: 'amenities',
+                    keywords: ['parking', 'food', 'canteen', 'pharmacy', 'medicine', 'medical store', 'wheelchair', 'lift', 'elevator'],
+                    response: "🏪 <b>Hospital Amenities:</b><br>• 24×7 In-house Pharmacy<br>• Wheelchair & Stretcher assistance at entrance<br>• Clean drinking water & waiting lounges<br>• Parking space available."
+                },
+                {
+                    intent: 'ortho',
+                    keywords: ['ortho', 'bone', 'joint', 'fracture', 'orthopaedic', 'pp singh', 'omkar', 'spine', 'knee', 'calcium'],
+                    response: "🦴 <b>Orthopaedics (Bone & Joint):</b><br>Our expert orthopaedic surgeons are <b>Dr. P. P. Singh</b> and <b>Dr. Omkar Pandey</b>. They specialize in trauma, fractures, and joint surgeries."
+                },
+                {
+                    intent: 'pedia',
+                    keywords: ['child', 'baby', 'kid', 'pediatric', 'pedia', 'srivastava', 'infant', 'neonatal'],
+                    response: "👶 <b>Pediatrics (Child Care):</b><br><b>Dr. R. K. Srivastava</b> provides expert childcare, managing everything from general pediatrics to our advanced NICU and PICU critical care units."
+                },
+                {
+                    intent: 'cardio',
+                    keywords: ['heart', 'chest', 'cardio', 'cardiology', 'rajesh', 'vs singh', 'respiratory', 'lungs', 'asthma', 'breathing'],
+                    response: "❤️ <b>Cardiology & Chest:</b><br><b>Dr. Rajesh Kumar Gupta</b> is our specialist for Cardiology, and <b>Dr. V.S. Singh</b> specializes in Chest & Respiratory conditions."
+                },
+                {
+                    intent: 'gynae',
+                    keywords: ['women', 'pregnant', 'delivery', 'gynae', 'maternity', 'obstetrics', 'ovarian', 'uterus'],
+                    response: "👩‍⚕️ <b>Women's Care:</b><br>We provide comprehensive Obstetrics & Gynecology services, including normal/cesarean deliveries, antenatal care, and specialized female surgeries."
+                },
+                {
+                    intent: 'doctors_general',
+                    keywords: ['doctor', 'list', 'specialist', 'physician', 'surgeon', 'who is', 'staff', 'team'],
+                    response: "👨‍⚕️ <b>Our Expert Panel:</b><br>We have senior specialists in Orthopaedics, Pediatrics, ENT, Cardiology, General Medicine, Neurology, and Surgery.<br><br><a href='#doctors' onclick='document.getElementById(\"chatbot-window\").classList.remove(\"open\")' class='inline-block mt-2 text-brand-blue font-bold underline'>View All Doctors</a>"
+                }
+            ];
+
+            function processNaturalLanguage(input) {
+                // Clean input: lowercase, remove special characters except spaces
+                let cleanText = input.toLowerCase().replace(/[^\w\s]/gi, '');
+                let words = cleanText.split(/\s+/);
+                
+                if (!cleanText) return "Please type a question so I can assist you.";
+
+                // 1. Handle Conversational & Small Talk
+                const greetings = ['hi', 'hello', 'hey', 'hii', 'helo', 'namaste', 'greetings'];
+                if (greetings.includes(words[0])) {
+                    currentContext = null;
+                    return "Hello! 👋 Welcome to Prabhat Hospital. I can help you with appointments, doctors, insurance, emergency info, or facilities. How can I assist you today?";
+                }
+                
+                if (cleanText.includes('thank') || cleanText === 'ok' || cleanText === 'okay' || cleanText === 'good') {
+                    currentContext = null;
+                    return "You're very welcome! 😊 Wishing you good health. Let me know if you need anything else.";
+                }
+
+                if (cleanText.includes('who are you') || cleanText.includes('human') || cleanText.includes('robot') || cleanText.includes('ai')) {
+                    return "I am the Prabhat Hospital AI Assistant. 🤖 I'm here 24/7 to instantly answer your questions about our hospital!";
+                }
+
+                // 2. Intent Scoring Engine
+                let bestMatch = { intent: null, score: 0, response: "" };
+
+                nlpDatabase.forEach(category => {
+                    let score = 0;
+                    category.keywords.forEach(keyword => {
+                        // Word boundary regex to match exact words or phrases (prevents 'car' matching 'care')
+                        let regex = new RegExp('\\b' + keyword + '\\b', 'i');
+                        if (regex.test(cleanText)) {
+                            // Weight multi-word keywords higher (e.g. 'blood test' is more specific than 'test')
+                            score += keyword.includes(' ') ? 3 : 1; 
+                        }
+                    });
+
+                    // Contextual Score Boosting
+                    if (currentContext) {
+                        if (currentContext === 'doctors_general' && category.intent.match(/ortho|pedia|cardio|gynae/)) score += 2;
+                        if (currentContext.match(/ortho|pedia|cardio|gynae/) && category.intent === 'cost') score += 2;
+                    }
+
+                    if (score > bestMatch.score) {
+                        bestMatch = { intent: category.intent, score: score, response: category.response };
+                    }
+                });
+
+                // 3. Contextual Follow-up Resolvers (Simulated Memory)
+                if (bestMatch.score === 0 && currentContext) {
+                    if (currentContext.match(/ortho|pedia|cardio|gynae|doctors_general/) && (cleanText.includes('fee') || cleanText.includes('cost'))) {
+                        return nlpDatabase.find(x => x.intent === 'cost').response;
+                    }
+                    if (currentContext === 'appointment' && cleanText.includes('time')) {
+                        return nlpDatabase.find(x => x.intent === 'timing').response;
+                    }
+                }
+
+                // 4. Return Best Match or Fallback
+                if (bestMatch.score > 0) {
+                    currentContext = bestMatch.intent; // Save memory
+                    return bestMatch.response;
+                }
+
+                // Ultimate Fallback
+                return "I'm not quite sure I understand. 🤔<br><br><b>Try asking me things like:</b><br>👉 <i>'I need an ambulance'</i><br>👉 <i>'How to book appointment?'</i><br>👉 <i>'Do you accept Ayushman card?'</i><br>👉 <i>'Who is the heart doctor?'</i>";
+            }
+
+            function handleChat() {
+                const text = chatInput.value.trim();
+                if(!text) return;
+                
+                // Add User Message
+                appendMessage(text, 'user', false);
+                chatInput.value = '';
+                
+                // Show thinking animation
+                showTypingIndicator();
+                
+                // Process via NLP Engine
+                const response = processNaturalLanguage(text);
+                
+                // Dynamic delay based on text length to simulate human reading/typing speed
+                const delay = Math.max(800, Math.min(2000, response.length * 8)); 
+                
+                setTimeout(() => {
+                    hideTypingIndicator();
+                    appendMessage(response, 'bot', true); 
+                }, delay);
+            }
+
+            chatSendBtn.addEventListener('click', handleChat);
+            chatInput.addEventListener('keypress', (e) => {
+                if(e.key === 'Enter') handleChat();
+            });
+        });
+    </script>
+</body>
+</html>
